@@ -1,0 +1,33 @@
+{
+  "decision_packet_version": "0.1",
+  "case_summary": {
+    "case_request": "giải thể",
+    "company_type": "Công ty cổ phần",
+    "selected_case_name": "Giải thể công ty cổ phần",
+    "status": "needs_confirmation"
+  },
+  "canonical_data": {
+    "company_name": "CÔNG TY CỔ PHẦN XÂY DỰNG DV&TM MINH NGỌC",
+    "company_abbreviation": "DV&TM MINH NGỌC",
+    "enterprise_tax_code": "0111562780",
+    "head_office_address": "Số 130A, Đường Ngô Quyền, Phường Hà Đông, Thành phố Hà Nội, Việt Nam",
+    "business_registration_authority": "Phòng Đăng ký kinh doanh và Tài chính doanh nghiệp - Sở Tài chính Thành phố Hà Nội",
+    "legal_representative_name": "TRẦN MINH QUANG",
+    "signing_place": "Hà Nội",
+    "signing_year": "2026"
+  },
+  "authorized_person": {
+    "name": "Quốc Hưng",
+    "profile_lookup_required": true
+  },
+"selected_masters": [
+  {
+    "master_name": "MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2 (1).docx",
+    "generation_order": 1
+  },
+  {
+    "master_name": "HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL (2).docx",
+    "generation_order": 2
+  }
+]
+}
