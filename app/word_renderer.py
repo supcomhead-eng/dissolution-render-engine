@@ -19,7 +19,9 @@ def replace_in_paragraph(
     paragraph: Any,
     replacements: dict[str, str],
 ) -> None:
-    full_text = "".join(run.text for run in paragraph.runs)
+    full_text = "".join(
+        run.text for run in paragraph.runs
+    )
 
     if not full_text:
         return
@@ -27,7 +29,10 @@ def replace_in_paragraph(
     new_text = full_text
 
     for placeholder, value in replacements.items():
-        new_text = new_text.replace(placeholder, value)
+        new_text = new_text.replace(
+            placeholder,
+            value,
+        )
 
     if new_text == full_text:
         return
@@ -102,7 +107,11 @@ def render_document(
                 replacements,
             )
 
-    OUTPUT_FOLDER.mkdir(exist_ok=True)
+    OUTPUT_FOLDER.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
     document.save(output_file)
 
 
@@ -121,9 +130,8 @@ def get_selected_master_name(
 
     first_master = selected_masters[0]
 
-    master_name = first_master.get(
-        "master_name",
-        "",
+    master_name = str(
+        first_master.get("master_name", "")
     ).strip()
 
     if not master_name:
@@ -132,6 +140,40 @@ def get_selected_master_name(
         )
 
     return master_name
+
+
+def get_master_file(
+    master_name: str,
+) -> Path:
+    safe_master_name = Path(master_name).name
+
+    if safe_master_name != master_name:
+        raise ValueError(
+            "master_name không hợp lệ. "
+            "Chỉ được chứa tên file, không chứa đường dẫn."
+        )
+
+    master_file = MASTER_FOLDER / master_name
+
+    if not master_file.exists():
+        raise FileNotFoundError(
+            f"Không tìm thấy file master: "
+            f"{master_name}"
+        )
+
+    if not master_file.is_file():
+        raise FileNotFoundError(
+            f"Đường dẫn master không phải file: "
+            f"{master_name}"
+        )
+
+    if master_file.suffix.lower() != ".docx":
+        raise ValueError(
+            f"File master không phải DOCX: "
+            f"{master_name}"
+        )
+
+    return master_file
 
 
 def main() -> None:
@@ -150,12 +192,9 @@ def main() -> None:
         packet
     )
 
-    master_file = MASTER_FOLDER / master_name
-
-    if not master_file.exists():
-        raise FileNotFoundError(
-            f"Không tìm thấy master: {master_file}"
-        )
+    master_file = get_master_file(
+        master_name
+    )
 
     output_file = (
         OUTPUT_FOLDER
