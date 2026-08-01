@@ -1,0 +1,24 @@
+{
+  "profiles": [
+    {
+      "authorized_person_name": "Trần Quốc Hưng",
+      "authorized_person_gender": "Nam",
+      "authorized_person_date_of_birth": "1996-10-03",
+      "authorized_person_id_number": "042096012131",
+      "authorized_person_id_issue_date": "2022-09-09",
+      "authorized_person_id_expiry_date": "2036-10-03",
+      "authorized_person_contact_address": "Tầng 7, Tòa nhà Viglacera, Số 676 Đường Hoàng Hoa Thám, Phường Tây Hồ, Thành phố Hà Nội, Việt Nam",
+      "authorized_person_phone": "0388765993",
+      "authorized_person_email": "hungquoctranht@gmail.com",
+      "authorized_person_job_title": "Nhân viên pháp lý",
+      "aliases": [
+        "Trần Quốc Hưng",
+        "Tran Quoc Hung",
+        "Quốc Hưng",
+        "Quoc Hung",
+        "Hưng",
+        "Hung"
+      ]
+    }
+  ]
+}
