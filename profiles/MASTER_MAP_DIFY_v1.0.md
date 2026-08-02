@@ -1,1788 +1,1287 @@
 # MASTER_MAP_DIFY_v1.0
 
-------------------------------------------------------------------------
-
-# Case: CASE_001
-
-## Case Name
-
-Hồ sơ Hải quan giải thể
-
-## Description
-
-Dùng chung mọi loại hình. Nếu chưa phát sinh XNK, vẫn tạo công văn và
-ghi nhận trạng thái chưa phát sinh theo rulebook.
-
-## Company Types
-
--   ALL
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_027 --- Giấy giới thiệu Hải quan --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_001 --- Công văn xác nhận nghĩa vụ hải quan --- Bắt buộc theo
-    MASTER_MAP.
-
-## Generation Order
-
-1.  MASTER_027; 2. MASTER_001
-
-## Master Dependencies
-
--   MASTER_027 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Dùng profile
-    người được giới thiệu mặc định
--   MASTER_001 phụ thuộc MASTER_027 (SAME_CASE) --- CASE_001
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Dùng chung mọi loại hình. Nếu chưa phát sinh XNK, vẫn tạo công văn và
-ghi nhận trạng thái chưa phát sinh theo rulebook.
-
-------------------------------------------------------------------------
-
-# Case: CASE_002
-
-## Case Name
-
-Hồ sơ Thuế giải thể
-
-## Description
-
-Dùng chung mọi loại hình; nội dung lý do/chủ thể phải theo company_type.
-
-## Company Types
-
--   ALL
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_002 --- Đề nghị chấm dứt hiệu lực MST --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_008 --- Công văn không hoàn thuế --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_009 --- Xác nhận không nợ thuế --- Bắt buộc theo MASTER_MAP.
--   MASTER_028 --- Giấy giới thiệu Thuế --- Bắt buộc theo MASTER_MAP.
-
-## Generation Order
-
-1.  MASTER_002; 2. MASTER_008; 3. MASTER_009; 4. MASTER_028
-
-## Master Dependencies
-
--   MASTER_009 phụ thuộc MASTER_002; MASTER_008 (PROCESS_CONTEXT) ---
-    CASE_002
--   MASTER_028 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Dùng profile
-    người được giới thiệu mặc định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Dùng chung mọi loại hình; nội dung lý do/chủ thể phải theo company_type.
-
-------------------------------------------------------------------------
-
-# Case: CASE_003
-
-## Case Name
-
-Sở ĐKKD - TNHH 1TV
-
-## Description
-
-Chưa có master ủy quyền TNHH 1TV được khóa riêng; đánh dấu cần xác nhận.
-
-## Company Types
-
--   TNHH_1TV
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_011 --- Quyết định chủ sở hữu TNHH 1TV --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_020 --- Thông báo giải thể Sở ĐKKD --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_021 --- Báo cáo thanh lý TNHH 1TV --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_019 --- Danh sách chủ nợ TNHH --- Bắt buộc theo MASTER_MAP.
-
-## Optional Masters
-
--   MASTER_030 --- Giấy ủy quyền lần 01 Sở - bản cũ
-
-## Conditional Masters
-
-Nếu authorized_submission = true: thêm MASTER_030 (tạm thời, cần xác
-nhận bản chính thức); nếu chủ sở hữu là tổ chức hoặc còn nợ/lao động:
-manual review
-
-## Generation Order
-
-1.  MASTER_011; 2. MASTER_020; 3. MASTER_021; 4. MASTER_019; 5.
-    MASTER_030 nếu áp dụng
-
-## Master Dependencies
-
--   MASTER_020 phụ thuộc MASTER_011 hoặc MASTER_013 (PROCESS_DEPENDENCY)
-    --- Theo loại hình TNHH
--   MASTER_019 phụ thuộc MASTER_011 hoặc MASTER_013 (CONTENT_DEPENDENCY)
-    --- TNHH
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Chưa có master ủy quyền TNHH 1TV được khóa riêng; đánh dấu cần xác nhận.
-
-------------------------------------------------------------------------
-
-# Case: CASE_004
-
-## Case Name
-
-Sở ĐKKD - TNHH 2TV+ giai đoạn 1
-
-## Description
-
-Biên bản tạo trước quyết định để kiểm tra danh sách thành viên, tỷ lệ và
-phiếu.
-
-## Company Types
-
--   TNHH_2TV_PLUS
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_026 --- Biên bản họp HĐTV TNHH 2TV+ --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_013 --- Quyết định HĐTV TNHH 2TV+ --- Bắt buộc theo
-    MASTER_MAP.
-
-## Optional Masters
-
--   MASTER_031 --- Giấy ủy quyền lần 01 TNHH 2TV+
-
-## Conditional Masters
-
-Nếu authorized_submission = true: thêm MASTER_031
-
-## Generation Order
-
-1.  MASTER_026; 2. MASTER_013; 3. MASTER_031 nếu áp dụng
-
-## Master Dependencies
-
--   MASTER_013 phụ thuộc MASTER_026 (CONTENT_DEPENDENCY) ---
-    TNHH_2TV_PLUS
--   MASTER_031 phụ thuộc MASTER_013; MASTER_026 (AUTHORIZATION_SCOPE)
-    --- authorized_submission = true và TNHH_2TV_PLUS
--   MASTER_031 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Nếu dùng
-    profile ủy quyền mặc định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Biên bản tạo trước quyết định để kiểm tra danh sách thành viên, tỷ lệ và
-phiếu.
-
-------------------------------------------------------------------------
-
-# Case: CASE_005
-
-## Case Name
-
-Sở ĐKKD - TNHH 2TV+ giai đoạn 2
-
-## Description
-
-Chỉ tạo khi đã có quyết định giải thể và hoàn tất thanh lý/nghĩa vụ.
-
-## Company Types
-
--   TNHH_2TV_PLUS
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_020 --- Thông báo giải thể Sở ĐKKD --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_024 --- Báo cáo thanh lý TNHH 2TV+ --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_019 --- Danh sách chủ nợ TNHH --- Bắt buộc theo MASTER_MAP.
-
-## Optional Masters
-
--   MASTER_034 --- Giấy ủy quyền lần 02 TNHH 2TV+
-
-## Conditional Masters
-
-Nếu authorized_submission = true: thêm MASTER_034
-
-## Generation Order
-
-1.  MASTER_024; 2. MASTER_019; 3. MASTER_020; 4. MASTER_034 nếu áp dụng
-
-## Master Dependencies
-
--   MASTER_020 phụ thuộc MASTER_011 hoặc MASTER_013 (PROCESS_DEPENDENCY)
-    --- Theo loại hình TNHH
--   MASTER_024 phụ thuộc MASTER_013; MASTER_026 (PROCESS_DEPENDENCY) ---
-    Sau quyết định giải thể TNHH 2TV+
--   MASTER_019 phụ thuộc MASTER_011 hoặc MASTER_013 (CONTENT_DEPENDENCY)
-    --- TNHH
--   MASTER_034 phụ thuộc MASTER_020; MASTER_024; MASTER_019
-    (AUTHORIZATION_SCOPE) --- authorized_submission = true và
-    TNHH_2TV_PLUS
--   MASTER_034 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Nếu dùng
-    profile ủy quyền mặc định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Chỉ tạo khi đã có quyết định giải thể và hoàn tất thanh lý/nghĩa vụ.
-
-------------------------------------------------------------------------
-
-# Case: CASE_006
-
-## Case Name
-
-Sở ĐKKD - CTCP giai đoạn 1
-
-## Description
-
-Biên bản phải kiểm tra tổng cổ phần, tỷ lệ sở hữu và phiếu trước khi tạo
-quyết định.
-
-## Company Types
-
--   CTCP
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_007 --- Biên bản họp ĐHĐCĐ CTCP --- Bắt buộc theo MASTER_MAP.
--   MASTER_003 --- Quyết định giải thể CTCP --- Bắt buộc theo
-    MASTER_MAP.
-
-## Optional Masters
-
--   MASTER_029 --- Giấy ủy quyền lần 01 CTCP
-
-## Conditional Masters
-
-Nếu authorized_submission = true: thêm MASTER_029
-
-## Generation Order
-
-1.  MASTER_007; 2. MASTER_003; 3. MASTER_029 nếu áp dụng
-
-## Master Dependencies
-
--   MASTER_003 phụ thuộc MASTER_007 (CONTENT_DEPENDENCY) --- CTCP
--   MASTER_029 phụ thuộc MASTER_003; MASTER_007 (AUTHORIZATION_SCOPE)
-    --- authorized_submission = true và CTCP
--   MASTER_029 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Nếu dùng
-    profile ủy quyền mặc định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Biên bản phải kiểm tra tổng cổ phần, tỷ lệ sở hữu và phiếu trước khi tạo
-quyết định.
-
-------------------------------------------------------------------------
-
-# Case: CASE_007
-
-## Case Name
-
-Sở ĐKKD - CTCP giai đoạn 2
-
-## Description
-
-Chỉ tạo khi thanh lý và thanh toán nghĩa vụ đã hoàn tất.
-
-## Company Types
-
--   CTCP
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   MASTER_018 --- Báo cáo thanh lý tài sản CTCP --- Bắt buộc theo
-    MASTER_MAP.
--   MASTER_023 --- Danh sách chủ nợ CTCP --- Bắt buộc theo MASTER_MAP.
--   MASTER_014 --- Thông báo giải thể lần 02 CTCP --- Bắt buộc theo
-    MASTER_MAP.
-
-## Optional Masters
-
--   MASTER_032 --- Giấy ủy quyền lần 02 CTCP
-
-## Conditional Masters
-
-Nếu authorized_submission = true: thêm MASTER_032
-
-## Generation Order
-
-1.  MASTER_018; 2. MASTER_023; 3. MASTER_014; 4. MASTER_032 nếu áp dụng
-
-## Master Dependencies
-
--   MASTER_018 phụ thuộc MASTER_003; MASTER_007 (PROCESS_DEPENDENCY) ---
-    Sau quyết định giải thể CTCP
--   MASTER_023 phụ thuộc MASTER_003 (CONTENT_DEPENDENCY) --- CTCP
--   MASTER_014 phụ thuộc MASTER_003; MASTER_018; MASTER_023
-    (PROCESS_DEPENDENCY) --- CTCP giai đoạn 2
--   MASTER_032 phụ thuộc MASTER_014; MASTER_018; MASTER_023
-    (AUTHORIZATION_SCOPE) --- authorized_submission = true và CTCP
--   MASTER_032 phụ thuộc MASTER_035 (DATA_DEPENDENCY) --- Nếu dùng
-    profile ủy quyền mặc định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Chỉ tạo khi thanh lý và thanh toán nghĩa vụ đã hoàn tất.
-
-------------------------------------------------------------------------
-
-# Case: CASE_008
-
-## Case Name
-
-Bộ giải thể đầy đủ TNHH 1TV
-
-## Description
-
-Thứ tự nộp thực tế có thể song song giữa Hải quan/Thuế; hồ sơ Sở giai
-đoạn cuối phụ thuộc hoàn tất nghĩa vụ.
-
-## Company Types
-
--   TNHH_1TV
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   CASE_001 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_002 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_003 --- --- Bắt buộc theo MASTER_MAP.
-
-## Generation Order
-
-1.  CASE_001; 2. CASE_002; 3. CASE_003
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Thứ tự nộp thực tế có thể song song giữa Hải quan/Thuế; hồ sơ Sở giai
-đoạn cuối phụ thuộc hoàn tất nghĩa vụ.
-
-------------------------------------------------------------------------
-
-# Case: CASE_009
-
-## Case Name
-
-Bộ giải thể đầy đủ TNHH 2TV+
-
-## Description
-
-Giai đoạn 2 chỉ sau khi có quyết định và hoàn tất nghĩa vụ.
-
-## Company Types
-
--   TNHH_2TV_PLUS
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   CASE_001 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_002 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_004 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_005 --- --- Bắt buộc theo MASTER_MAP.
-
-## Generation Order
-
-1.  CASE_004; 2. CASE_001 và CASE_002; 3. CASE_005
-
-## Master Dependencies
-
--   CASE_005 phụ thuộc CASE_004 (STAGE_DEPENDENCY) --- TNHH_2TV_PLUS
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Giai đoạn 2 chỉ sau khi có quyết định và hoàn tất nghĩa vụ.
-
-------------------------------------------------------------------------
-
-# Case: CASE_010
-
-## Case Name
-
-Bộ giải thể đầy đủ CTCP
-
-## Description
-
-Giai đoạn 2 chỉ sau khi có quyết định và hoàn tất nghĩa vụ.
-
-## Company Types
-
--   CTCP
-
-## Required Inputs
-
--   Company registration certificate (GPKD)
--   Tax code / Enterprise code
--   Legal representative information
-
-## Required Masters
-
--   CASE_001 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_002 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_006 --- --- Bắt buộc theo MASTER_MAP.
--   CASE_007 --- --- Bắt buộc theo MASTER_MAP.
-
-## Generation Order
-
-1.  CASE_006; 2. CASE_001 và CASE_002; 3. CASE_007
-
-## Master Dependencies
-
--   CASE_007 phụ thuộc CASE_006 (STAGE_DEPENDENCY) --- CTCP
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
--   registered_office_address
-
-## Validation
-
--   Kiểm tra đã chọn đủ master bắt buộc.
--   Nếu thiếu điều kiện xác định case hoặc giai đoạn thì dừng và yêu cầu
-    bổ sung.
-
-## Notes
-
-Giai đoạn 2 chỉ sau khi có quyết định và hoàn tất nghĩa vụ.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_001
-
-## Master Name
-
-Công văn xác nhận nghĩa vụ hải quan
-
-## File Name
-
-HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-
-## Document Type
-
-Công văn
-
-## Used In Cases
-
--   CASE_001
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_027 (SAME_CASE)
-
-## Notes
-
-Dùng chung mọi loại hình.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_002
-
-## Master Name
-
-Đề nghị chấm dứt hiệu lực MST
-
-## File Name
-
-MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-
-## Document Type
-
-Văn bản đề nghị
-
-## Used In Cases
-
--   CASE_002
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Dùng chung; nội dung lý do có thể cần điều chỉnh theo loại hình ở bước
-render.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_003
-
-## Master Name
-
-Quyết định giải thể CTCP
-
-## File Name
-
-MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-
-## Document Type
-
-Quyết định
-
-## Used In Cases
-
--   CASE_006
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_007 (CONTENT_DEPENDENCY)
-
-## Notes
-
-Bản chính thức đang dùng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_004
-
-## Master Name
-
-Quyết định giải thể CTCP - bản trùng
-
-## File Name
-
-MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-
-## Document Type
-
-Quyết định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không chọn khi MASTER_003 khả dụng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_005
-
-## Master Name
-
-Biên bản ĐHĐCĐ CTCP - bản cũ 1
-
-## File Name
-
-MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-
-## Document Type
-
-Biên bản họp
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_007.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_006
-
-## Master Name
-
-Biên bản ĐHĐCĐ CTCP - bản cũ 2
-
-## File Name
-
-MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-
-## Document Type
-
-Biên bản họp
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_007.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_007
-
-## Master Name
-
-Biên bản họp ĐHĐCĐ CTCP
-
-## File Name
-
-MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-
-## Document Type
-
-Biên bản họp
-
-## Used In Cases
-
--   CASE_006
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Dùng cho giai đoạn thông qua quyết định giải thể.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_008
-
-## Master Name
-
-Công văn không hoàn thuế
-
-## File Name
-
-MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-
-## Document Type
-
-Công văn
-
-## Used In Cases
-
--   CASE_002
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Dùng chung.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_009
-
-## Master Name
-
-Xác nhận không nợ thuế
-
-## File Name
-
-MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
-
-## Document Type
-
-Mẫu thuế
-
-## Used In Cases
-
--   CASE_002
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_002; MASTER_008 (PROCESS_CONTEXT)
-
-## Notes
-
-Bản V3 chính thức.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_010
-
-## Master Name
-
-Xác nhận không nợ thuế - bản trùng
-
-## File Name
-
-MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3.docx
-
-## Document Type
-
-Mẫu thuế
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không chọn khi MASTER_009 khả dụng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_011
-
-## Master Name
-
-Quyết định chủ sở hữu TNHH 1TV
-
-## File Name
-
-MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-
-## Document Type
-
-Quyết định
-
-## Used In Cases
-
--   CASE_003
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Bản có hậu tố (1) được coi là bản dùng hiện tại.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_012
-
-## Master Name
-
-Quyết định chủ sở hữu TNHH 1TV - bản trùng
-
-## File Name
-
-MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-
-## Document Type
-
-Quyết định
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không chọn khi MASTER_011 khả dụng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_013
-
-## Master Name
-
-Quyết định HĐTV TNHH 2TV+
-
-## File Name
-
-MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-
-## Document Type
-
-Quyết định
-
-## Used In Cases
-
--   CASE_004
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_026 (CONTENT_DEPENDENCY)
-
-## Notes
-
-Phụ thuộc biên bản HĐTV.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_014
-
-## Master Name
-
-Thông báo giải thể lần 02 CTCP
-
-## File Name
-
-MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-
-## Document Type
-
-Thông báo
-
-## Used In Cases
-
--   CASE_007
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_003; MASTER_018; MASTER_023 (PROCESS_DEPENDENCY)
-
-## Notes
-
-Dùng ở giai đoạn hồ sơ giải thể hoàn tất/lần 02.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_015
-
-## Master Name
-
-Thông báo giải thể CTCP - bản trùng
-
-## File Name
-
-MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
-
-## Document Type
-
-Thông báo
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không chọn khi MASTER_014 khả dụng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_016
-
-## Master Name
-
-Báo cáo thanh lý CTCP - bản cũ 1
-
-## File Name
-
-MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-
-## Document Type
-
-Báo cáo
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_018.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_017
-
-## Master Name
-
-Báo cáo thanh lý CTCP - bản cũ 2
-
-## File Name
-
-MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-
-## Document Type
-
-Báo cáo
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_018.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_018
-
-## Master Name
-
-Báo cáo thanh lý tài sản CTCP
-
-## File Name
-
-MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Document Type
-
-Báo cáo
-
-## Used In Cases
-
--   CASE_007
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_003; MASTER_007 (PROCESS_DEPENDENCY)
-
-## Notes
-
-Có block cổ đông ở nhiều vị trí.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_019
-
-## Master Name
-
-Danh sách chủ nợ TNHH
-
-## File Name
-
-MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
-
-## Document Type
-
-Danh sách
-
-## Used In Cases
-
--   CASE_003
--   CASE_005
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_011 hoặc MASTER_013 (CONTENT_DEPENDENCY)
-
-## Notes
-
-Dùng cho TNHH 1TV và TNHH 2TV+ theo workflow hiện tại.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_020
-
-## Master Name
-
-Thông báo giải thể Sở ĐKKD
-
-## File Name
-
-MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-
-## Document Type
-
-Thông báo
-
-## Used In Cases
-
--   CASE_003
--   CASE_005
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_011 hoặc MASTER_013 (PROCESS_DEPENDENCY)
-
-## Notes
-
-Dùng chung TNHH 1TV và TNHH 2TV+; cần xác nhận phân kỳ lần 1/lần 2.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_021
-
-## Master Name
-
-Báo cáo thanh lý TNHH 1TV
-
-## File Name
-
-MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-
-## Document Type
-
-Báo cáo
-
-## Used In Cases
-
--   CASE_003
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-------------------------------------------------------------------------
-
-# Master: MASTER_022
-
-## Master Name
-
-Danh sách chủ nợ CTCP - bản cũ
-
-## File Name
-
-MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(1).docx
-
-## Document Type
-
-Danh sách
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_023.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_023
-
-## Master Name
-
-Danh sách chủ nợ CTCP
-
-## File Name
-
-MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
-
-## Document Type
-
-Danh sách
-
-## Used In Cases
-
--   CASE_007
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_003 (CONTENT_DEPENDENCY)
-
-## Notes
-
-Mặc định các khoản Không có theo bộ chuẩn.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_024
-
-## Master Name
-
-Báo cáo thanh lý TNHH 2TV+
-
-## File Name
-
-MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-
-## Document Type
-
-Báo cáo
-
-## Used In Cases
-
--   CASE_005
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_013; MASTER_026 (PROCESS_DEPENDENCY)
-
-------------------------------------------------------------------------
-
-# Master: MASTER_025
-
-## Master Name
-
-Biên bản HĐTV TNHH 2TV+ - bản trùng
-
-## File Name
-
-MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN
-V4(1).docx
-
-## Document Type
-
-Biên bản họp
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không chọn khi MASTER_026 khả dụng.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_026
-
-## Master Name
-
-Biên bản họp HĐTV TNHH 2TV+
-
-## File Name
-
-MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN
-V4.docx
-
-## Document Type
-
-Biên bản họp
-
-## Used In Cases
-
--   CASE_004
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Phải tạo trước quyết định để kiểm tra dữ liệu họp.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_027
-
-## Master Name
-
-Giấy giới thiệu Hải quan
-
-## File Name
-
-MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-
-## Document Type
-
-Giấy giới thiệu
-
-## Used In Cases
-
--   CASE_001
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Nếu NĐDPL trực tiếp đi nộp có thể cần xác nhận có bỏ hay không.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_028
-
-## Master Name
-
-Giấy giới thiệu Thuế
-
-## File Name
-
-MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
-
-## Document Type
-
-Giấy giới thiệu
-
-## Used In Cases
-
--   CASE_002
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Theo router hiện tại luôn có.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_029
-
-## Master Name
-
-Giấy ủy quyền lần 01 CTCP
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Used In Cases
-
--   CASE_006
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_003; MASTER_007 (AUTHORIZATION_SCOPE)
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Thêm khi người nộp không phải NĐDPL.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_030
-
-## Master Name
-
-Giấy ủy quyền lần 01 Sở - bản cũ
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Used In Cases
-
--   CASE_003
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_031 cho TNHH 2TV+; khả năng dùng TNHH 1TV cần xác
-nhận.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_031
-
-## Master Name
-
-Giấy ủy quyền lần 01 TNHH 2TV+
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Used In Cases
-
--   CASE_004
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_013; MASTER_026 (AUTHORIZATION_SCOPE)
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Thêm khi có người được ủy quyền.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_032
-
-## Master Name
-
-Giấy ủy quyền lần 02 CTCP
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Used In Cases
-
--   CASE_007
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_014; MASTER_018; MASTER_023 (AUTHORIZATION_SCOPE)
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Thêm khi người nộp không phải NĐDPL.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_033
-
-## Master Name
-
-Giấy ủy quyền lần 02 Sở - bản cũ
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Được thay bằng MASTER_034.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_034
-
-## Master Name
-
-Giấy ủy quyền lần 02 TNHH 2TV+
-
-## File Name
-
-MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Document Type
-
-Giấy ủy quyền
-
-## Used In Cases
-
--   CASE_005
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Dependencies
-
--   MASTER_020; MASTER_024; MASTER_019 (AUTHORIZATION_SCOPE)
--   MASTER_035 (DATA_DEPENDENCY)
-
-## Notes
-
-Thêm khi có người được ủy quyền.
-
-------------------------------------------------------------------------
-
-# Master: MASTER_035
-
-## Master Name
-
-Profile người được ủy quyền
-
-## File Name
-
-MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Document Type
-
-Data profile
-
-## Required Canonical Fields
-
--   company_name
--   enterprise_tax_code
--   legal_representative_name
-
-## Notes
-
-Không phải tài liệu đầu ra; dùng làm nguồn dữ liệu.
-
-# NEEDS_CONFIRMATION
-
-## NC-001 - Master ủy quyền TNHH 1TV
-
--   **item**: NC-001 - Master ủy quyền TNHH 1TV
--   **reason**: Chưa có file được khóa riêng rõ ràng.
--   **current_understanding**: Tạm hiểu MASTER_030 có thể dùng cho TNHH
-    1TV.
--   **recommendation**: Chốt một master riêng hoặc xác nhận MASTER_030
-    dùng chung.
-
-## NC-002 - Phân kỳ MASTER_020
-
--   **item**: NC-002 - Phân kỳ MASTER_020
--   **reason**: Tên file không thể hiện lần 1/lần 2, trong khi TNHH 2TV+
-    có ủy quyền hai lần.
--   **current_understanding**: Tạm đặt MASTER_020 ở giai đoạn 2.
--   **recommendation**: Xác nhận thông báo này thuộc giai đoạn nào cho
-    TNHH 1TV và TNHH 2TV+.
-
-## NC-003 - Giấy giới thiệu khi NĐDPL trực tiếp nộp
-
--   **item**: NC-003 - Giấy giới thiệu khi NĐDPL trực tiếp nộp
--   **reason**: Router hiện tại ghi Always, nhưng thực tế có thể không
-    cần giới thiệu.
--   **current_understanding**: Tạm coi bắt buộc theo bộ chuẩn.
--   **recommendation**: Xác nhận có được bỏ MASTER_027/028 khi NĐDPL
-    trực tiếp làm việc hay không.
-
-## NC-004 - Chủ sở hữu TNHH 1TV là tổ chức
-
--   **item**: NC-004 - Chủ sở hữu TNHH 1TV là tổ chức
--   **reason**: Master hiện tại có nội dung chủ sở hữu cá nhân.
--   **current_understanding**: Chưa có master riêng cho chủ sở hữu tổ
-    chức.
--   **recommendation**: Cần master/rule riêng trước khi tự động hóa.
-
-## NC-005 - Chi nhánh/địa điểm kinh doanh/VPĐD
-
--   **item**: NC-005 - Chi nhánh/địa điểm kinh doanh/VPĐD
--   **reason**: Hiện không có master chấm dứt đơn vị phụ thuộc trong
-    danh sách.
--   **current_understanding**: Không tự thêm file.
--   **recommendation**: Xây master bổ sung khi triển khai case có đơn vị
-    phụ thuộc.
-
-## NC-006 - Doanh nghiệp có nợ hoặc lao động
-
--   **item**: NC-006 - Doanh nghiệp có nợ hoặc lao động
--   **reason**: Các master danh sách chủ nợ và nội dung lao động đang
-    mặc định Không có/0.
--   **current_understanding**: Cho phép dùng master nhưng phải thay dữ
-    liệu thực tế và manual review.
--   **recommendation**: Cần schema động cho chủ nợ/lao động ở phiên bản
-    sau.
-
-## NC-007 - Thứ tự Hải quan và Thuế
-
--   **item**: NC-007 - Thứ tự Hải quan và Thuế
--   **reason**: Hai luồng có thể thực hiện song song; thứ tự nộp phụ
-    thuộc thực tế địa phương.
--   **current_understanding**: MASTER MAP ghi song song trong full
-    bundle.
--   **recommendation**: Khi tích hợp workflow, cho phép parallel branch.
-
-## NC-008 - Bản chính thức của các file trùng
-
--   **item**: NC-008 - Bản chính thức của các file trùng
--   **reason**: Một số master có hậu tố (1), (2), (3) và bản không hậu
-    tố.
--   **current_understanding**: Đã chọn bản mới nhất/chốt theo lịch sử
-    làm việc.
--   **recommendation**: Nên kiểm tra checksum và khóa kho master trước
-    production.
-
-## NC-009 - CTCP có cần cả hai giấy ủy quyền khi cùng một người nộp
-
--   **item**: NC-009 - CTCP có cần cả hai giấy ủy quyền khi cùng một
-    người nộp
--   **reason**: Đã chốt hai master theo hai giai đoạn.
--   **current_understanding**: Tạm thêm theo từng stage nếu
-    authorized_submission=true.
--   **recommendation**: Xác nhận có thể dùng một ủy quyền bao trùm cả
-    hai giai đoạn hay không.
-
-## NC-010 - Tên cơ quan sau thay đổi tổ chức
-
--   **item**: NC-010 - Tên cơ quan sau thay đổi tổ chức
--   **reason**: Tên cơ quan ĐKKD/Thuế/Hải quan có thể đổi.
--   **current_understanding**: Không hard-code trong MASTER MAP.
--   **recommendation**: Luôn chạy SEARCH_RULES trước render.
+## 1. Purpose
+
+This file is the single source of truth used by the Decision Engine to determine:
+
+- `selected_case_id`
+- `selected_case_name`
+- `selected_masters`
+- `generation_order`
+- dependencies between masters
+- conditions for generating or skipping each master
+
+The Render Engine must use the exact `master_name` values defined below. File names are case-sensitive and include the `.docx` extension.
+
+---
+
+## 2. Cases
+
+### CASE_001
+
+```yaml
+case_id: CASE_001
+case_name: HỒ SƠ HẢI QUAN GIẢI THỂ
+company_type:
+  - TNHH_1TV
+  - TNHH_2TV_PLUS
+  - CTCP
+case_request: hai_quan
+description: >
+  Bộ hồ sơ đề nghị xác nhận hoàn thành nghĩa vụ nộp thuế đối với hoạt động
+  xuất nhập khẩu phục vụ thủ tục giải thể doanh nghiệp.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - requested_output contains "hai_quan" OR requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Dùng chung cho mọi loại hình doanh nghiệp.
+    - Nếu doanh nghiệp chưa phát sinh xuất nhập khẩu, vẫn sinh đủ bộ hồ sơ và ghi nhận "Chưa phát sinh XNK" theo Rulebook.
+  required_masters:
+    - MASTER_HQ_001
+    - MASTER_HQ_002
+  optional_masters: []
+masters:
+  - master_id: MASTER_HQ_001
+    master_name: MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
+    generation_order: 1
+    document_title: GIẤY GIỚI THIỆU
+    document_type: introduction_letter
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_001
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: HAI_QUAN
+
+  - master_id: MASTER_HQ_002
+    master_name: HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
+    generation_order: 2
+    document_title: CÔNG VĂN ĐỀ NGHỊ XÁC NHẬN HOÀN THÀNH NGHĨA VỤ NỘP THUẾ
+    document_type: official_letter
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_001
+    depends_on:
+      - MASTER_HQ_001
+    skip_when: false
+    output_group: HAI_QUAN
+```
+
+---
+
+### CASE_002
+
+```yaml
+case_id: CASE_002
+case_name: HỒ SƠ THUẾ GIẢI THỂ
+company_type:
+  - TNHH_1TV
+  - TNHH_2TV_PLUS
+  - CTCP
+case_request: thue
+description: >
+  Bộ hồ sơ chấm dứt hiệu lực mã số thuế, cam kết không hoàn thuế,
+  xác nhận nghĩa vụ thuế và giấy giới thiệu làm việc với cơ quan thuế.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - requested_output contains "thue" OR requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Dùng chung cho mọi loại hình doanh nghiệp.
+    - Nội dung chủ thể ra quyết định giải thể phải được Render Engine điều chỉnh theo company_type.
+  required_masters:
+    - MASTER_TAX_001
+    - MASTER_TAX_002
+    - MASTER_TAX_003
+    - MASTER_TAX_004
+  optional_masters: []
+masters:
+  - master_id: MASTER_TAX_001
+    master_name: MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
+    generation_order: 1
+    document_title: VĂN BẢN ĐỀ NGHỊ CHẤM DỨT HIỆU LỰC MÃ SỐ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_002
+    depends_on: []
+    skip_when: false
+    output_group: THUE
+
+  - master_id: MASTER_TAX_002
+    master_name: MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
+    generation_order: 2
+    document_title: CÔNG VĂN CAM KẾT KHÔNG HOÀN THUẾ
+    document_type: official_letter
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_002
+    depends_on:
+      - MASTER_TAX_001
+    skip_when: false
+    output_group: THUE
+
+  - master_id: MASTER_TAX_003
+    master_name: MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
+    generation_order: 3
+    document_title: VĂN BẢN ĐỀ NGHỊ XÁC NHẬN VIỆC THỰC HIỆN NGHĨA VỤ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_002
+    depends_on:
+      - MASTER_TAX_001
+      - MASTER_TAX_002
+    skip_when: false
+    output_group: THUE
+
+  - master_id: MASTER_TAX_004
+    master_name: MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
+    generation_order: 4
+    document_title: GIẤY GIỚI THIỆU
+    document_type: introduction_letter
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_002
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: THUE
+```
+
+---
+
+### CASE_003
+
+```yaml
+case_id: CASE_003
+case_name: HỒ SƠ SỞ ĐKKD - TNHH MỘT THÀNH VIÊN
+company_type:
+  - TNHH_1TV
+case_request: so_khdt
+description: >
+  Bộ hồ sơ giải thể tại Cơ quan đăng ký kinh doanh dành cho công ty TNHH một thành viên.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = TNHH_1TV
+    - requested_output contains "so_khdt" OR requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Quyết định của chủ sở hữu phải được sinh trước các tài liệu giai đoạn hoàn tất giải thể.
+    - Giấy ủy quyền chỉ sinh khi người nộp hồ sơ không phải người đại diện theo pháp luật.
+  required_masters:
+    - MASTER_1TV_001
+    - MASTER_1TV_002
+    - MASTER_1TV_003
+    - MASTER_1TV_004
+  optional_masters:
+    - MASTER_1TV_005
+masters:
+  - master_id: MASTER_1TV_001
+    master_name: MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
+    generation_order: 1
+    document_title: QUYẾT ĐỊNH CỦA CHỦ SỞ HỮU VỀ VIỆC GIẢI THỂ DOANH NGHIỆP
+    document_type: decision
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_003
+    depends_on: []
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+
+  - master_id: MASTER_1TV_002
+    master_name: MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
+    generation_order: 2
+    document_title: THÔNG BÁO VỀ VIỆC GIẢI THỂ DOANH NGHIỆP
+    document_type: notification
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_003
+    depends_on:
+      - MASTER_1TV_001
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+
+  - master_id: MASTER_1TV_003
+    master_name: MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
+    generation_order: 3
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN DOANH NGHIỆP
+    document_type: liquidation_report
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_003
+    depends_on:
+      - MASTER_1TV_001
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+
+  - master_id: MASTER_1TV_004
+    master_name: MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
+    generation_order: 4
+    document_title: DANH SÁCH CHỦ NỢ VÀ SỐ NỢ ĐÃ THANH TOÁN
+    document_type: creditor_list
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_003
+    depends_on:
+      - MASTER_1TV_001
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+
+  - master_id: MASTER_1TV_005
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
+    generation_order: 5
+    document_title: GIẤY ỦY QUYỀN
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_003
+        - authorized_submission = true
+    depends_on:
+      - authorized_person_profile
+      - MASTER_1TV_001
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_1TV
+```
+
+---
+
+### CASE_004
+
+```yaml
+case_id: CASE_004
+case_name: HỒ SƠ SỞ ĐKKD - TNHH HAI THÀNH VIÊN TRỞ LÊN - GIAI ĐOẠN 1
+company_type:
+  - TNHH_2TV_PLUS
+case_request: so_khdt_giai_doan_1
+description: >
+  Bộ hồ sơ thông qua quyết định giải thể của Hội đồng thành viên.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = TNHH_2TV_PLUS
+    - dissolution_stage = 1
+notes:
+  business_notes:
+    - Biên bản họp phải sinh trước quyết định.
+    - Phải kiểm tra tổng vốn góp, tỷ lệ góp và tổng số phiếu biểu quyết.
+  required_masters:
+    - MASTER_2TV_S1_001
+    - MASTER_2TV_S1_002
+  optional_masters:
+    - MASTER_2TV_S1_003
+masters:
+  - master_id: MASTER_2TV_S1_001
+    master_name: MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
+    generation_order: 1
+    document_title: BIÊN BẢN HỌP HỘI ĐỒNG THÀNH VIÊN VỀ VIỆC GIẢI THỂ
+    document_type: meeting_minutes
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_004
+    depends_on:
+      - member_list
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD1
+
+  - master_id: MASTER_2TV_S1_002
+    master_name: MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
+    generation_order: 2
+    document_title: QUYẾT ĐỊNH HỘI ĐỒNG THÀNH VIÊN VỀ VIỆC GIẢI THỂ
+    document_type: decision
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_004
+    depends_on:
+      - MASTER_2TV_S1_001
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD1
+
+  - master_id: MASTER_2TV_S1_003
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
+    generation_order: 3
+    document_title: GIẤY ỦY QUYỀN LẦN 01
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_004
+        - authorized_submission = true
+    depends_on:
+      - MASTER_2TV_S1_001
+      - MASTER_2TV_S1_002
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_2TV_GD1
+```
+
+---
+
+### CASE_005
+
+```yaml
+case_id: CASE_005
+case_name: HỒ SƠ SỞ ĐKKD - TNHH HAI THÀNH VIÊN TRỞ LÊN - GIAI ĐOẠN 2
+company_type:
+  - TNHH_2TV_PLUS
+case_request: so_khdt_giai_doan_2
+description: >
+  Bộ hồ sơ hoàn tất giải thể sau khi doanh nghiệp đã thanh lý tài sản và hoàn thành nghĩa vụ.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = TNHH_2TV_PLUS
+    - dissolution_stage = 2
+    - dissolution_decision_issued = true
+notes:
+  business_notes:
+    - Chỉ sinh sau giai đoạn 1.
+    - Báo cáo thanh lý phải phản ánh đầy đủ thành viên và phần vốn được hoàn trả.
+  required_masters:
+    - MASTER_2TV_S2_001
+    - MASTER_2TV_S2_002
+    - MASTER_2TV_S2_003
+  optional_masters:
+    - MASTER_2TV_S2_004
+masters:
+  - master_id: MASTER_2TV_S2_001
+    master_name: MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
+    generation_order: 1
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN DOANH NGHIỆP
+    document_type: liquidation_report
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_005
+    depends_on:
+      - CASE_004
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+
+  - master_id: MASTER_2TV_S2_002
+    master_name: MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
+    generation_order: 2
+    document_title: DANH SÁCH CHỦ NỢ VÀ SỐ NỢ ĐÃ THANH TOÁN
+    document_type: creditor_list
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_005
+    depends_on:
+      - CASE_004
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+
+  - master_id: MASTER_2TV_S2_003
+    master_name: MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
+    generation_order: 3
+    document_title: THÔNG BÁO VỀ VIỆC GIẢI THỂ DOANH NGHIỆP
+    document_type: notification
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_005
+    depends_on:
+      - MASTER_2TV_S2_001
+      - MASTER_2TV_S2_002
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+
+  - master_id: MASTER_2TV_S2_004
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
+    generation_order: 4
+    document_title: GIẤY ỦY QUYỀN LẦN 02
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_005
+        - authorized_submission = true
+    depends_on:
+      - MASTER_2TV_S2_001
+      - MASTER_2TV_S2_002
+      - MASTER_2TV_S2_003
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_2TV_GD2
+```
+
+---
+
+### CASE_006
+
+```yaml
+case_id: CASE_006
+case_name: HỒ SƠ SỞ ĐKKD - CÔNG TY CỔ PHẦN - GIAI ĐOẠN 1
+company_type:
+  - CTCP
+case_request: so_khdt_giai_doan_1
+description: >
+  Bộ hồ sơ thông qua quyết định giải thể của Đại hội đồng cổ đông.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = CTCP
+    - dissolution_stage = 1
+notes:
+  business_notes:
+    - Biên bản họp Đại hội đồng cổ đông phải sinh trước quyết định.
+    - Phải kiểm tra tổng cổ phần, tỷ lệ sở hữu và tổng phiếu biểu quyết.
+  required_masters:
+    - MASTER_CTCP_S1_001
+    - MASTER_CTCP_S1_002
+  optional_masters:
+    - MASTER_CTCP_S1_003
+masters:
+  - master_id: MASTER_CTCP_S1_001
+    master_name: MASTER_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_FINAL.docx
+    generation_order: 1
+    document_title: BIÊN BẢN HỌP ĐẠI HỘI ĐỒNG CỔ ĐÔNG VỀ VIỆC GIẢI THỂ
+    document_type: meeting_minutes
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_006
+    depends_on:
+      - shareholder_list
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD1
+
+  - master_id: MASTER_CTCP_S1_002
+    master_name: MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
+    generation_order: 2
+    document_title: QUYẾT ĐỊNH ĐẠI HỘI ĐỒNG CỔ ĐÔNG VỀ VIỆC GIẢI THỂ
+    document_type: decision
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_006
+    depends_on:
+      - MASTER_CTCP_S1_001
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD1
+
+  - master_id: MASTER_CTCP_S1_003
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+    generation_order: 3
+    document_title: GIẤY ỦY QUYỀN LẦN 01
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_006
+        - authorized_submission = true
+    depends_on:
+      - MASTER_CTCP_S1_001
+      - MASTER_CTCP_S1_002
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_CTCP_GD1
+```
+
+---
+
+### CASE_007
+
+```yaml
+case_id: CASE_007
+case_name: HỒ SƠ SỞ ĐKKD - CÔNG TY CỔ PHẦN - GIAI ĐOẠN 2
+company_type:
+  - CTCP
+case_request: so_khdt_giai_doan_2
+description: >
+  Bộ hồ sơ hoàn tất giải thể công ty cổ phần sau khi thanh lý và hoàn thành nghĩa vụ.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = CTCP
+    - dissolution_stage = 2
+    - dissolution_decision_issued = true
+notes:
+  business_notes:
+    - Chỉ sinh sau CASE_006.
+    - Báo cáo thanh lý và danh sách chủ nợ phải sinh trước thông báo giải thể lần 02.
+  required_masters:
+    - MASTER_CTCP_S2_001
+    - MASTER_CTCP_S2_002
+    - MASTER_CTCP_S2_003
+  optional_masters:
+    - MASTER_CTCP_S2_004
+masters:
+  - master_id: MASTER_CTCP_S2_001
+    master_name: MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
+    generation_order: 1
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN DOANH NGHIỆP
+    document_type: liquidation_report
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_007
+    depends_on:
+      - CASE_006
+      - shareholder_list
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+
+  - master_id: MASTER_CTCP_S2_002
+    master_name: MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
+    generation_order: 2
+    document_title: DANH SÁCH CHỦ NỢ VÀ SỐ NỢ ĐÃ THANH TOÁN
+    document_type: creditor_list
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_007
+    depends_on:
+      - CASE_006
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+
+  - master_id: MASTER_CTCP_S2_003
+    master_name: MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
+    generation_order: 3
+    document_title: THÔNG BÁO VỀ VIỆC GIẢI THỂ DOANH NGHIỆP
+    document_type: notification
+    required: true
+    generate_when:
+      all:
+        - case_id = CASE_007
+    depends_on:
+      - MASTER_CTCP_S2_001
+      - MASTER_CTCP_S2_002
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+
+  - master_id: MASTER_CTCP_S2_004
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+    generation_order: 4
+    document_title: GIẤY ỦY QUYỀN LẦN 02
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_007
+        - authorized_submission = true
+    depends_on:
+      - MASTER_CTCP_S2_001
+      - MASTER_CTCP_S2_002
+      - MASTER_CTCP_S2_003
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_CTCP_GD2
+```
+
+---
+
+### CASE_008
+
+```yaml
+case_id: CASE_008
+case_name: BỘ HỒ SƠ GIẢI THỂ ĐẦY ĐỦ - TNHH MỘT THÀNH VIÊN
+company_type:
+  - TNHH_1TV
+case_request: full_dossier
+description: >
+  Bộ hồ sơ đầy đủ gồm Hải quan, Thuế và Sở ĐKKD dành cho công ty TNHH một thành viên.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = TNHH_1TV
+    - requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Hải quan và Thuế có thể xử lý song song.
+    - Hồ sơ hoàn tất tại Sở ĐKKD chỉ nộp sau khi hoàn thành nghĩa vụ liên quan.
+  required_masters:
+    - Tất cả master required của CASE_001
+    - Tất cả master required của CASE_002
+    - Tất cả master required của CASE_003
+  optional_masters:
+    - MASTER_1TV_005
+masters:
+  - master_id: MASTER_FULL_1TV_001
+    master_name: MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
+    generation_order: 1
+    document_title: GIẤY GIỚI THIỆU HẢI QUAN
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_1TV_002
+    master_name: HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
+    generation_order: 2
+    document_title: CÔNG VĂN XÁC NHẬN NGHĨA VỤ HẢI QUAN
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_001
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_1TV_003
+    master_name: MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
+    generation_order: 3
+    document_title: ĐỀ NGHỊ CHẤM DỨT HIỆU LỰC MÃ SỐ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on: []
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_1TV_004
+    master_name: MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
+    generation_order: 4
+    document_title: CÔNG VĂN KHÔNG HOÀN THUẾ
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_003
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_1TV_005
+    master_name: MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
+    generation_order: 5
+    document_title: XÁC NHẬN NGHĨA VỤ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_003
+      - MASTER_FULL_1TV_004
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_1TV_006
+    master_name: MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
+    generation_order: 6
+    document_title: GIẤY GIỚI THIỆU THUẾ
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_1TV_007
+    master_name: MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
+    generation_order: 7
+    document_title: QUYẾT ĐỊNH CỦA CHỦ SỞ HỮU VỀ VIỆC GIẢI THỂ
+    document_type: decision
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on: []
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+  - master_id: MASTER_FULL_1TV_008
+    master_name: MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
+    generation_order: 8
+    document_title: THÔNG BÁO GIẢI THỂ
+    document_type: notification
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_007
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+  - master_id: MASTER_FULL_1TV_009
+    master_name: MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
+    generation_order: 9
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN
+    document_type: liquidation_report
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_007
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+  - master_id: MASTER_FULL_1TV_010
+    master_name: MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
+    generation_order: 10
+    document_title: DANH SÁCH CHỦ NỢ
+    document_type: creditor_list
+    required: true
+    generate_when: case_id = CASE_008
+    depends_on:
+      - MASTER_FULL_1TV_007
+    skip_when: false
+    output_group: SO_KHDT_TNHH_1TV
+  - master_id: MASTER_FULL_1TV_011
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
+    generation_order: 11
+    document_title: GIẤY ỦY QUYỀN
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_008
+        - authorized_submission = true
+    depends_on:
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_1TV
+```
+
+---
+
+### CASE_009
+
+```yaml
+case_id: CASE_009
+case_name: BỘ HỒ SƠ GIẢI THỂ ĐẦY ĐỦ - TNHH HAI THÀNH VIÊN TRỞ LÊN
+company_type:
+  - TNHH_2TV_PLUS
+case_request: full_dossier
+description: >
+  Bộ hồ sơ đầy đủ gồm Hải quan, Thuế, Sở ĐKKD giai đoạn 1 và giai đoạn 2.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = TNHH_2TV_PLUS
+    - requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Giai đoạn 1 phải hoàn thành trước giai đoạn 2.
+    - Hải quan và Thuế có thể xử lý song song sau khi có quyết định giải thể.
+  required_masters:
+    - Tất cả master required của CASE_001
+    - Tất cả master required của CASE_002
+    - Tất cả master required của CASE_004
+    - Tất cả master required của CASE_005
+  optional_masters:
+    - MASTER_2TV_S1_003
+    - MASTER_2TV_S2_004
+masters:
+  - master_id: MASTER_FULL_2TV_001
+    master_name: MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
+    generation_order: 1
+    document_title: BIÊN BẢN HỌP HỘI ĐỒNG THÀNH VIÊN
+    document_type: meeting_minutes
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - member_list
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD1
+  - master_id: MASTER_FULL_2TV_002
+    master_name: MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
+    generation_order: 2
+    document_title: QUYẾT ĐỊNH HỘI ĐỒNG THÀNH VIÊN
+    document_type: decision
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_001
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD1
+  - master_id: MASTER_FULL_2TV_003
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
+    generation_order: 3
+    document_title: GIẤY ỦY QUYỀN LẦN 01
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_009
+        - authorized_submission = true
+    depends_on:
+      - MASTER_FULL_2TV_001
+      - MASTER_FULL_2TV_002
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_2TV_GD1
+  - master_id: MASTER_FULL_2TV_004
+    master_name: MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
+    generation_order: 4
+    document_title: GIẤY GIỚI THIỆU HẢI QUAN
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_2TV_005
+    master_name: HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
+    generation_order: 5
+    document_title: CÔNG VĂN XÁC NHẬN NGHĨA VỤ HẢI QUAN
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_004
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_2TV_006
+    master_name: MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
+    generation_order: 6
+    document_title: ĐỀ NGHỊ CHẤM DỨT HIỆU LỰC MÃ SỐ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_002
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_2TV_007
+    master_name: MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
+    generation_order: 7
+    document_title: CÔNG VĂN KHÔNG HOÀN THUẾ
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_006
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_2TV_008
+    master_name: MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
+    generation_order: 8
+    document_title: XÁC NHẬN NGHĨA VỤ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_006
+      - MASTER_FULL_2TV_007
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_2TV_009
+    master_name: MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
+    generation_order: 9
+    document_title: GIẤY GIỚI THIỆU THUẾ
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_2TV_010
+    master_name: MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
+    generation_order: 10
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN
+    document_type: liquidation_report
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_001
+      - MASTER_FULL_2TV_002
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+  - master_id: MASTER_FULL_2TV_011
+    master_name: MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
+    generation_order: 11
+    document_title: DANH SÁCH CHỦ NỢ
+    document_type: creditor_list
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_002
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+  - master_id: MASTER_FULL_2TV_012
+    master_name: MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
+    generation_order: 12
+    document_title: THÔNG BÁO GIẢI THỂ
+    document_type: notification
+    required: true
+    generate_when: case_id = CASE_009
+    depends_on:
+      - MASTER_FULL_2TV_010
+      - MASTER_FULL_2TV_011
+    skip_when: false
+    output_group: SO_KHDT_TNHH_2TV_GD2
+  - master_id: MASTER_FULL_2TV_013
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
+    generation_order: 13
+    document_title: GIẤY ỦY QUYỀN LẦN 02
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_009
+        - authorized_submission = true
+    depends_on:
+      - MASTER_FULL_2TV_010
+      - MASTER_FULL_2TV_011
+      - MASTER_FULL_2TV_012
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_TNHH_2TV_GD2
+```
+
+---
+
+### CASE_010
+
+```yaml
+case_id: CASE_010
+case_name: BỘ HỒ SƠ GIẢI THỂ ĐẦY ĐỦ - CÔNG TY CỔ PHẦN
+company_type:
+  - CTCP
+case_request: full_dossier
+description: >
+  Bộ hồ sơ đầy đủ gồm Hải quan, Thuế, Sở ĐKKD giai đoạn 1 và giai đoạn 2.
+trigger_conditions:
+  all:
+    - dissolution_request = true
+    - company_type = CTCP
+    - requested_output = "full_dossier"
+notes:
+  business_notes:
+    - Giai đoạn 1 phải hoàn thành trước giai đoạn 2.
+    - Hải quan và Thuế có thể xử lý song song sau khi có quyết định giải thể.
+  required_masters:
+    - Tất cả master required của CASE_001
+    - Tất cả master required của CASE_002
+    - Tất cả master required của CASE_006
+    - Tất cả master required của CASE_007
+  optional_masters:
+    - MASTER_CTCP_S1_003
+    - MASTER_CTCP_S2_004
+masters:
+  - master_id: MASTER_FULL_CTCP_001
+    master_name: MASTER_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_FINAL.docx
+    generation_order: 1
+    document_title: BIÊN BẢN HỌP ĐẠI HỘI ĐỒNG CỔ ĐÔNG
+    document_type: meeting_minutes
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - shareholder_list
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD1
+  - master_id: MASTER_FULL_CTCP_002
+    master_name: MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
+    generation_order: 2
+    document_title: QUYẾT ĐỊNH ĐẠI HỘI ĐỒNG CỔ ĐÔNG
+    document_type: decision
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_001
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD1
+  - master_id: MASTER_FULL_CTCP_003
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+    generation_order: 3
+    document_title: GIẤY ỦY QUYỀN LẦN 01
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_010
+        - authorized_submission = true
+    depends_on:
+      - MASTER_FULL_CTCP_001
+      - MASTER_FULL_CTCP_002
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_CTCP_GD1
+  - master_id: MASTER_FULL_CTCP_004
+    master_name: MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
+    generation_order: 4
+    document_title: GIẤY GIỚI THIỆU HẢI QUAN
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_CTCP_005
+    master_name: HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
+    generation_order: 5
+    document_title: CÔNG VĂN XÁC NHẬN NGHĨA VỤ HẢI QUAN
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_004
+    skip_when: false
+    output_group: HAI_QUAN
+  - master_id: MASTER_FULL_CTCP_006
+    master_name: MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
+    generation_order: 6
+    document_title: ĐỀ NGHỊ CHẤM DỨT HIỆU LỰC MÃ SỐ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_002
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_CTCP_007
+    master_name: MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
+    generation_order: 7
+    document_title: CÔNG VĂN KHÔNG HOÀN THUẾ
+    document_type: official_letter
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_006
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_CTCP_008
+    master_name: MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
+    generation_order: 8
+    document_title: XÁC NHẬN NGHĨA VỤ THUẾ
+    document_type: tax_form
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_006
+      - MASTER_FULL_CTCP_007
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_CTCP_009
+    master_name: MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
+    generation_order: 9
+    document_title: GIẤY GIỚI THIỆU THUẾ
+    document_type: introduction_letter
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - authorized_person_profile
+    skip_when: false
+    output_group: THUE
+  - master_id: MASTER_FULL_CTCP_010
+    master_name: MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
+    generation_order: 10
+    document_title: BÁO CÁO THANH LÝ TÀI SẢN
+    document_type: liquidation_report
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_001
+      - MASTER_FULL_CTCP_002
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+  - master_id: MASTER_FULL_CTCP_011
+    master_name: MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
+    generation_order: 11
+    document_title: DANH SÁCH CHỦ NỢ
+    document_type: creditor_list
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_002
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+  - master_id: MASTER_FULL_CTCP_012
+    master_name: MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
+    generation_order: 12
+    document_title: THÔNG BÁO GIẢI THỂ LẦN 02
+    document_type: notification
+    required: true
+    generate_when: case_id = CASE_010
+    depends_on:
+      - MASTER_FULL_CTCP_010
+      - MASTER_FULL_CTCP_011
+    skip_when: false
+    output_group: SO_KHDT_CTCP_GD2
+  - master_id: MASTER_FULL_CTCP_013
+    master_name: MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+    generation_order: 13
+    document_title: GIẤY ỦY QUYỀN LẦN 02
+    document_type: authorization
+    required: false
+    generate_when:
+      all:
+        - case_id = CASE_010
+        - authorized_submission = true
+    depends_on:
+      - MASTER_FULL_CTCP_010
+      - MASTER_FULL_CTCP_011
+      - MASTER_FULL_CTCP_012
+      - authorized_person_profile
+    skip_when:
+      any:
+        - authorized_submission = false
+        - submitter_is_legal_representative = true
+    output_group: SO_KHDT_CTCP_GD2
+```
+
+---
+
+## 3. Data Sources
+
+```yaml
+data_sources:
+  authorized_person_profile:
+    source_name: authorized_profiles.json
+    source_type: json
+    required_when:
+      any:
+        - document_type = introduction_letter
+        - document_type = authorization
+    lookup_field: aliases
+```
+
+---
+
+## 4. Global Decision Rules
+
+```yaml
+decision_rules:
+  - rule_id: DR_001
+    description: Hải quan và Thuế dùng chung cho mọi loại hình doanh nghiệp.
+  - rule_id: DR_002
+    description: Chỉ bộ Sở ĐKKD phân loại theo TNHH_1TV, TNHH_2TV_PLUS hoặc CTCP.
+  - rule_id: DR_003
+    description: Giấy ủy quyền chỉ sinh khi authorized_submission = true và người nộp không phải người đại diện theo pháp luật.
+  - rule_id: DR_004
+    description: TNHH_2TV_PLUS và CTCP phải sinh biên bản họp trước quyết định.
+  - rule_id: DR_005
+    description: Hồ sơ giai đoạn 2 chỉ sinh sau khi có quyết định giải thể hợp lệ.
+  - rule_id: DR_006
+    description: TỔNG SỐ PHIẾU BIỂU QUYẾT của TNHH_2TV_PLUS bằng TỔNG VỐN ĐIỀU LỆ chia 10.000.
+  - rule_id: DR_007
+    description: Không được tự thay thế master bằng file khác nếu master_name không tồn tại.
+```
+
+---
+
+## 5. Validation
+
+```yaml
+validation:
+  case_rules:
+    - rule: Mỗi case phải có ít nhất 1 master.
+      severity: error
+    - rule: case_id phải duy nhất trong toàn bộ file.
+      severity: error
+    - rule: case_id không được null hoặc rỗng.
+      severity: error
+    - rule: case_name không được null hoặc rỗng.
+      severity: error
+    - rule: company_type không được null hoặc rỗng.
+      severity: error
+    - rule: trigger_conditions phải tồn tại.
+      severity: error
+
+  master_rules:
+    - rule: master_id phải duy nhất trong phạm vi toàn bộ file.
+      severity: error
+    - rule: master_name không được null hoặc rỗng.
+      severity: error
+    - rule: master_name phải có đuôi .docx.
+      severity: error
+    - rule: master_name phải tồn tại chính xác trong thư mục masters.
+      severity: error
+    - rule: Không được chuẩn hóa, đổi chữ hoa/thường, xóa khoảng trắng hoặc sửa hậu tố của master_name.
+      severity: error
+    - rule: generation_order không được null.
+      severity: error
+    - rule: generation_order phải là số nguyên dương.
+      severity: error
+    - rule: generation_order không được trùng trong cùng một case.
+      severity: error
+    - rule: required chỉ được nhận true hoặc false.
+      severity: error
+    - rule: generate_when phải tồn tại.
+      severity: error
+    - rule: depends_on phải là mảng; dùng mảng rỗng nếu không có dependency.
+      severity: error
+    - rule: skip_when phải tồn tại.
+      severity: error
+    - rule: output_group không được null hoặc rỗng.
+      severity: error
+
+  dependency_rules:
+    - rule: Mọi master_id được tham chiếu trong depends_on phải tồn tại trong case hiện tại hoặc là data source/case dependency hợp lệ.
+      severity: error
+    - rule: Không được có dependency vòng.
+      severity: error
+    - rule: Master phụ thuộc phải có generation_order nhỏ hơn master đang phụ thuộc, trừ data source và case dependency.
+      severity: error
+
+  render_preflight:
+    - rule: Chỉ render khi tất cả master required đã được chọn.
+      severity: error
+    - rule: Dừng render nếu bất kỳ master_name nào không tồn tại.
+      severity: error
+    - rule: Dừng render nếu còn field bắt buộc chưa có dữ liệu.
+      severity: error
+    - rule: Dừng render nếu dependency chưa thỏa mãn.
+      severity: error
+```
+
+---
+
+## 6. Output Contract
+
+```yaml
+decision_engine_output:
+  required_fields:
+    - selected_case_id
+    - selected_case_name
+    - selected_masters
+    - generation_order
+
+  selected_masters_item_schema:
+    - master_id
+    - master_name
+    - generation_order
+    - document_title
+    - document_type
+    - required
+    - generate_when
+    - depends_on
+    - skip_when
+    - output_group
+
+  failure_behavior:
+    - Không tự đoán master_name.
+    - Không tự tạo master mới.
+    - Không bỏ qua master required.
+    - Trả lỗi validation rõ ràng nếu file master không tồn tại hoặc không đối chiếu được duy nhất.
+```
