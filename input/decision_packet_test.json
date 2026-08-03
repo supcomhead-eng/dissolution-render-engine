@@ -20,14 +20,10 @@
     "name": "Quốc Hưng",
     "profile_lookup_required": true
   },
-"selected_masters": [
-  {
-    "master_name": "MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2 (1).docx",
-    "generation_order": 1
-  },
-  {
-    "master_name": "HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL (2).docx",
-    "generation_order": 2
-  }
-]
+  "selected_masters": [
+    {
+      "master_name": "MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT (2).docx",
+      "generation_order": 1
+    }
+  ]
 }

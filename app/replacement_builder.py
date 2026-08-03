@@ -1,10 +1,15 @@
 from typing import Any
 
+from app.authorized_profile_loader import (
+    find_authorized_profile,
+)
 from app.decision_loader import (
     DECISION_PACKET_FILE,
     load_decision_packet,
 )
-from app.placeholder_mapping_loader import load_placeholder_mapping
+from app.placeholder_mapping_loader import (
+    load_placeholder_mapping,
+)
 from app.system_resolver import resolve_system_value
 
 
@@ -18,12 +23,16 @@ SKIP_PLACEHOLDERS_PREFIXES = (
 )
 
 
-def extract_value(raw_value: Any) -> str | None:
+def extract_value(
+    raw_value: Any,
+) -> str | None:
     if raw_value is None:
         return None
 
     if isinstance(raw_value, dict):
-        value = raw_value.get("normalized_value")
+        value = raw_value.get(
+            "normalized_value"
+        )
 
         if value is None:
             value = raw_value.get("value")
@@ -33,37 +42,97 @@ def extract_value(raw_value: Any) -> str | None:
 
         return str(value)
 
-    if isinstance(raw_value, (list, tuple, set)):
-        return ", ".join(str(item) for item in raw_value)
+    if isinstance(
+        raw_value,
+        (list, tuple, set),
+    ):
+        return ", ".join(
+            str(item)
+            for item in raw_value
+        )
 
     return str(raw_value)
 
 
-def build_data_pool(packet: dict[str, Any]) -> dict[str, Any]:
+def build_data_pool(
+    packet: dict[str, Any],
+) -> dict[str, Any]:
     data_pool: dict[str, Any] = {}
 
-    canonical_data = packet.get("canonical_data", {})
+    canonical_data = packet.get(
+        "canonical_data",
+        {},
+    )
 
     if isinstance(canonical_data, dict):
         data_pool.update(canonical_data)
 
-    authorized_person = packet.get("authorized_person", {})
+    authorized_person = packet.get(
+        "authorized_person",
+        {},
+    )
 
     if isinstance(authorized_person, dict):
+        requested_name = (
+            authorized_person.get("name")
+            or authorized_person.get(
+                "authorized_person_name"
+            )
+            or ""
+        )
+
+        requested_name = str(
+            requested_name
+        ).strip()
+
+        if requested_name:
+            try:
+                profile = find_authorized_profile(
+                    requested_name
+                )
+
+                for key, value in profile.items():
+                    if key == "aliases":
+                        continue
+
+                    data_pool.setdefault(
+                        key,
+                        value,
+                    )
+
+            except (
+                FileNotFoundError,
+                ValueError,
+            ) as error:
+                data_pool[
+                    "_authorized_profile_lookup_error"
+                ] = str(error)
+
         for key, value in authorized_person.items():
             canonical_key = (
                 key
-                if key.startswith("authorized_person_")
+                if key.startswith(
+                    "authorized_person_"
+                )
                 else f"authorized_person_{key}"
             )
 
-            data_pool.setdefault(canonical_key, value)
+            data_pool.setdefault(
+                canonical_key,
+                value,
+            )
 
-    case_summary = packet.get("case_summary", {})
+    case_summary = packet.get(
+        "case_summary",
+        {},
+    )
 
     if isinstance(case_summary, dict):
         for key, value in case_summary.items():
-            data_pool.setdefault(key, value)
+            data_pool.setdefault(
+                key,
+                value,
+            )
 
     return data_pool
 
@@ -71,43 +140,91 @@ def build_data_pool(packet: dict[str, Any]) -> dict[str, Any]:
 def build_replacements(
     packet: dict[str, Any],
     mapping: dict[str, dict[str, Any]],
-) -> tuple[dict[str, str], list[dict[str, str]]]:
+) -> tuple[
+    dict[str, str],
+    list[dict[str, str]],
+]:
     data_pool = build_data_pool(packet)
 
+    profile_lookup_error = extract_value(
+        data_pool.pop(
+            "_authorized_profile_lookup_error",
+            None,
+        )
+    )
+
     replacements: dict[str, str] = {}
-    unresolved: list[dict[str, str]] = []
+
+    unresolved: list[
+        dict[str, str]
+    ] = []
+
+    if profile_lookup_error:
+        unresolved.append(
+            {
+                "placeholder": (
+                    "[HỒ SƠ NGƯỜI ĐƯỢC ỦY QUYỀN]"
+                ),
+                "canonical_field": (
+                    "authorized_person_profile"
+                ),
+                "reason": profile_lookup_error,
+            }
+        )
 
     for placeholder, item in mapping.items():
         canonical_field = str(
-            item.get("canonical_field", "")
+            item.get(
+                "canonical_field",
+                "",
+            )
         ).strip()
 
         source_type = str(
-            item.get("source_type", "")
+            item.get(
+                "source_type",
+                "",
+            )
         ).strip().upper()
 
         if source_type in SKIP_SOURCE_TYPES:
             continue
 
-        if placeholder.startswith(SKIP_PLACEHOLDERS_PREFIXES):
+        if placeholder.startswith(
+            SKIP_PLACEHOLDERS_PREFIXES
+        ):
             continue
 
-        if not canonical_field or canonical_field == "UNKNOWN":
+        if (
+            not canonical_field
+            or canonical_field == "UNKNOWN"
+        ):
             unresolved.append(
                 {
                     "placeholder": placeholder,
-                    "canonical_field": canonical_field or "UNKNOWN",
-                    "reason": "Không có canonical field hợp lệ.",
+                    "canonical_field": (
+                        canonical_field
+                        or "UNKNOWN"
+                    ),
+                    "reason": (
+                        "Không có canonical "
+                        "field hợp lệ."
+                    ),
                 }
             )
             continue
 
         value = extract_value(
-            data_pool.get(canonical_field)
+            data_pool.get(
+                canonical_field
+            )
         )
 
         if (
-            (value is None or value == "")
+            (
+                value is None
+                or value == ""
+            )
             and source_type == "SYSTEM"
         ):
             value = resolve_system_value(
@@ -118,9 +235,12 @@ def build_replacements(
             unresolved.append(
                 {
                     "placeholder": placeholder,
-                    "canonical_field": canonical_field,
+                    "canonical_field": (
+                        canonical_field
+                    ),
                     "reason": (
-                        f"Chưa có giá trị cho Source Type "
+                        "Chưa có giá trị cho "
+                        f"Source Type "
                         f"{source_type or 'UNKNOWN'}."
                     ),
                 }
@@ -139,9 +259,11 @@ def main() -> None:
 
     mapping = load_placeholder_mapping()
 
-    replacements, unresolved = build_replacements(
-        packet,
-        mapping,
+    replacements, unresolved = (
+        build_replacements(
+            packet,
+            mapping,
+        )
     )
 
     print(
@@ -153,7 +275,9 @@ def main() -> None:
     for placeholder, value in list(
         replacements.items()
     )[:30]:
-        print(f"{placeholder} -> {value}")
+        print(
+            f"{placeholder} -> {value}"
+        )
 
     print("=" * 70)
     print(
