@@ -11,6 +11,9 @@ from app.placeholder_mapping_loader import (
     load_placeholder_mapping,
 )
 from app.system_resolver import resolve_system_value
+from app.derived_field_resolver import (
+    resolve_derived_value,
+)
 
 
 SKIP_SOURCE_TYPES = {
@@ -146,6 +149,14 @@ def build_replacements(
 ]:
     data_pool = build_data_pool(packet)
 
+    # determine master context (conservative: use first selected master name if any)
+    selected_masters = packet.get("selected_masters", []) or []
+    master_name = None
+    if isinstance(selected_masters, list) and selected_masters:
+        first = selected_masters[0]
+        if isinstance(first, dict):
+            master_name = first.get("master_name")
+
     profile_lookup_error = extract_value(
         data_pool.pop(
             "_authorized_profile_lookup_error",
@@ -214,12 +225,31 @@ def build_replacements(
             )
             continue
 
+        # 1. try direct canonical field from data_pool
         value = extract_value(
             data_pool.get(
                 canonical_field
             )
         )
 
+        # 2. if missing, attempt derived/alias resolution
+        if (value is None or value == ""):
+            try:
+                derived = resolve_derived_value(
+                    canonical_field,
+                    data_pool,
+                    placeholder=placeholder,
+                    mapping_item=item,
+                    master_name=master_name,
+                )
+            except Exception as err:
+                # fail-safe: don't crash replacement building
+                derived = None
+
+            if derived is not None and derived != "":
+                value = str(derived)
+
+        # 3. if still missing and system source type, call system resolver
         if (
             (
                 value is None
