@@ -9,39 +9,73 @@ from app.decision_loader import (
 )
 from app.placeholder_mapping_loader import load_placeholder_mapping
 from app.replacement_builder import build_replacements
+import re
+import unicodedata
 
 
 MASTER_FOLDER = Path("masters")
 OUTPUT_FOLDER = Path("output")
 
 
+def _normalize_whitespace(text: str) -> str:
+    # replace non-breaking and zero-width spaces with normal space, collapse multiples
+    if text is None:
+        return ""
+    s = text.replace("\u00A0", " ").replace("\u200B", "")
+    # normalize unicode to NFC to make comparisons stable
+    s = unicodedata.normalize("NFC", s)
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+def _placeholder_pattern(placeholder: str) -> re.Pattern:
+    # Build a regex pattern that treats any whitespace (including NBSP/ZWSP)
+    # in the placeholder as a flexible class so that variations in Word runs
+    # and NBSP do not prevent matching.
+    esc = re.escape(placeholder)
+    # replace escaped spaces with a class that matches normal space, NBSP, ZWSP and any whitespace
+    esc = esc.replace(r"\ ", r"[\s\u00A0\u200B]+")
+    return re.compile(esc)
+
+
 def replace_in_paragraph(
     paragraph: Any,
     replacements: dict[str, str],
 ) -> None:
-    full_text = "".join(
-        run.text for run in paragraph.runs
-    )
+    # Build full text from paragraph runs
+    runs = paragraph.runs
+    if not runs:
+        return
 
+    full_text = "".join(run.text for run in runs)
     if not full_text:
         return
 
-    new_text = full_text
+    original = full_text
+    new_text = original
 
+    # Attempt replacements using flexible whitespace-aware patterns
     for placeholder, value in replacements.items():
-        new_text = new_text.replace(
-            placeholder,
-            value,
-        )
+        if not placeholder:
+            continue
+        try:
+            pattern = _placeholder_pattern(placeholder)
+            # operate on unicode-normalized form for stability
+            new_text = pattern.sub(value, new_text)
+        except re.error:
+            # fallback to simple replace if pattern build fails
+            new_text = new_text.replace(placeholder, value)
 
-    if new_text == full_text:
+    if new_text == original:
         return
 
-    if paragraph.runs:
-        paragraph.runs[0].text = new_text
-
-        for run in paragraph.runs[1:]:
-            run.text = ""
+    # Write back: put entire new_text into first run and clear remaining runs
+    # This preserves formatting of the first run; alternative strategies
+    # could attempt to preserve formatting across segments, but this is a
+    # safe generic solution that avoids missing split-run placeholders.
+    runs[0].text = new_text
+    for run in runs[1:]:
+        run.text = ""
 
 
 def replace_in_table(
