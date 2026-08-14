@@ -106,7 +106,8 @@ def resolve_derived_value(
 
     # 7. Signing place
     if cf == "signing_place":
-        addr = data_pool.get("registered_office_address")
+        # accept both registered_office_address and head_office_address as possible sources
+        addr = data_pool.get("registered_office_address") or data_pool.get("head_office_address")
         if not addr:
             return None
         return _extract_place_from_address(str(addr))
@@ -164,36 +165,41 @@ def _placeholder_refers_to_authorized(
 def _extract_place_from_address(address: str) -> str | None:
     """Extract the province/city name from registered_office_address.
 
-    Conservative extraction: look for component immediately before ', Việt Nam' or words 'Thành phố' / 'Tỉnh'.
+    Conservative extraction: prefer explicit 'Thành phố' or 'Tỉnh' tokens, otherwise use
+    the component immediately before 'Việt Nam'. Return None when uncertain.
     """
+    if not address or not address.strip():
+        return None
+
+    # split by commas and strip whitespace
     parts = [p.strip() for p in address.split(",") if p.strip()]
     if not parts:
         return None
 
-    # If last component contains 'Việt' assume previous part is the location
-    last = parts[-1]
-    if last.lower().startswith("việt") and len(parts) >= 2:
+    # 1) Scan each part (from end) for explicit 'Thành phố' or 'Tỉnh'
+    for part in reversed(parts):
+        m = re.search(r"(?:Thành phố|TP\.|T\.P\.|Tỉnh)\s+(.+)$", part, flags=re.IGNORECASE)
+        if m:
+            candidate = m.group(1).strip()
+            # sanity: reasonable length and contains letters
+            if 0 < len(candidate) <= 80 and re.search(r"[A-Za-zÀ-ỹ0-9]", candidate):
+                return candidate
+
+    # 2) If last part mentions 'Việt' (e.g., 'Việt Nam'), take previous part
+    last = parts[-1].lower()
+    if "việt" in last and len(parts) >= 2:
         candidate = parts[-2]
-    else:
-        # fallback: try to find tokens like 'Thành phố X' or 'Tỉnh X'
-        candidate = address
+        # remove leading tokens like 'Thành phố' or 'Tỉnh'
+        candidate = re.sub(r"^(?:Thành phố|TP\.|T\.P\.|Tỉnh)\s*", "", candidate, flags=re.IGNORECASE).strip()
+        if 0 < len(candidate) <= 80 and re.search(r"[A-Za-zÀ-ỹ0-9]", candidate):
+            return candidate
 
-    # remove leading words
-    candidate = re.sub(r"^(Thành phố|TP\.|Tỉnh|TTP\.)\s*", "", candidate, flags=re.IGNORECASE)
-    candidate = candidate.strip()
-
-    # if candidate still contains too many commas or slashes, be conservative
-    if "," in candidate or "(" in candidate or ";" in candidate:
-        # don't attempt risky parsing
-        pass
-
-    # minimal sanity: candidate should be short (<= 40 chars) and contain letters
-    if 0 < len(candidate) <= 40 and re.search(r"[\p{L}A-Za-z0-9]", candidate):
-        return candidate
-
-    # final attempt: search for 'Thành phố X' or 'Tỉnh X' anywhere
-    m = re.search(r"(?:Thành phố|Tỉnh)\s+([\w\sÀ-ỹ]+?)(?:,|$)", address, flags=re.IGNORECASE)
+    # 3) Final conservative attempt: search anywhere for 'Thành phố X' or 'Tỉnh X'
+    m = re.search(r"(?:Thành phố|Tỉnh)\s+([A-Za-zÀ-ỹ0-9\s\-]+?)(?:,|$)", address, flags=re.IGNORECASE)
     if m:
-        return m.group(1).strip()
+        candidate = m.group(1).strip()
+        if 0 < len(candidate) <= 80:
+            return candidate
 
+    # If none matched confidently, return None
     return None
