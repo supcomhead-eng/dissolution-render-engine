@@ -16,6 +16,20 @@ import unicodedata
 MASTER_FOLDER = Path("masters")
 OUTPUT_FOLDER = Path("output")
 
+# Diagnostics targets (exact placeholders)
+TARGET_PLACEHOLDERS = [
+    "[NGÀY CẤP CCCD NGƯỜI UQ]",
+    "[NƠI CẤP CCCD NGƯỜI UQ]",
+]
+# substrings to detect in paragraph text (without brackets)
+TARGET_SUBSTRINGS = [
+    "NGÀY CẤP CCCD NGƯỜI UQ",
+    "NƠI CẤP CCCD NGƯỜI UQ",
+]
+
+# current master name for context in replace_in_paragraph diagnostics
+_CURRENT_MASTER: str | None = None
+
 
 def _normalize_whitespace(text: str) -> str:
     # replace non-breaking and zero-width spaces with normal space, collapse multiples
@@ -54,6 +68,28 @@ def replace_in_paragraph(
     original = full_text
     new_text = original
 
+    # Diagnostic: if paragraph contains any target substring, log detailed info
+    try:
+        if any(sub in original for sub in TARGET_SUBSTRINGS):
+            print("\nTRACE RENDERER OCCURRENCE")
+            print("MASTER =", repr(_CURRENT_MASTER))
+            print("full_text =", repr(original))
+            # For each target placeholder, show pattern, current replacement and what pattern.sub would produce
+            for ph in TARGET_PLACEHOLDERS:
+                repl_val = replacements.get(ph)
+                try:
+                    pattern = _placeholder_pattern(ph)
+                    simulated = pattern.sub(repl_val or "", original)
+                    print("placeholder =", ph)
+                    print("replacement =", repr(repl_val))
+                    print("pattern =", repr(pattern.pattern))
+                    print("simulated_new_text =", repr(simulated))
+                    print("changed =", repr(simulated != original))
+                except Exception as e:
+                    print("ERROR building pattern/simulating for", ph, ":", e)
+    except Exception:
+        print("TRACE RENDERER OCCURRENCE: logging failed")
+
     # Attempt replacements using flexible whitespace-aware patterns
     for placeholder, value in replacements.items():
         if not placeholder:
@@ -76,6 +112,14 @@ def replace_in_paragraph(
     runs[0].text = new_text
     for run in runs[1:]:
         run.text = ""
+
+    # After write, log the resulting runs text join for diagnostics if original had target substrings
+    try:
+        if any(sub in original for sub in TARGET_SUBSTRINGS):
+            final_join = "".join(run.text for run in paragraph.runs)
+            print("text_after_run_write =", repr(final_join))
+    except Exception:
+        print("TRACE RENDERER OCCURRENCE: failed to print final runs text")
 
 
 def replace_in_table(
@@ -102,6 +146,9 @@ def render_document(
     output_file: Path,
     replacements: dict[str, str],
 ) -> None:
+    global _CURRENT_MASTER
+    _CURRENT_MASTER = master_file.name
+
     document = Document(master_file)
 
     for paragraph in document.paragraphs:
@@ -147,6 +194,27 @@ def render_document(
     )
 
     document.save(output_file)
+
+    # POST_SAVE_SCAN: re-open saved docx and assert presence/absence of placeholders (log only)
+    try:
+        doc_after = Document(output_file)
+        founds = {}
+        for ph in TARGET_PLACEHOLDERS:
+            present = False
+            for para in doc_after.paragraphs:
+                if ph in para.text:
+                    present = True
+                    break
+            founds[ph] = present
+        print("\nPOST_SAVE_SCAN")
+        for ph in TARGET_PLACEHOLDERS:
+            status = "FOUND" if founds[ph] else "NOT_FOUND"
+            print(f"{ph} = {status}")
+    except Exception as e:
+        print("POST_SAVE_SCAN: failed to open saved document:", e)
+
+    # clear current master context
+    _CURRENT_MASTER = None
 
 
 def get_selected_master_name(
