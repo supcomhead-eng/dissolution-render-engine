@@ -12,6 +12,10 @@ from app.placeholder_scanner import scan_document
 from app.replacement_builder import build_replacements
 from app.word_renderer import render_document
 
+TARGET_PLACEHOLDERS = [
+    "[NGÀY CẤP CCCD NGƯỜI UQ]",
+    "[NƠI CẤP CCCD NGƯỜI UQ]",
+]
 
 MASTER_FOLDER = Path("masters")
 OUTPUT_FOLDER = Path("output")
@@ -23,6 +27,17 @@ def validate_rendered_file(
 ) -> list[str]:
     document = Document(output_file)
     remaining = sorted(scan_document(document))
+
+    # --- TRACE validate_rendered_file ---
+    try:
+        print("\nTRACE VALIDATE_RENDERED_FILE")
+        print("file =", str(output_file))
+        print("remaining (raw) =", repr(remaining))
+        for ph in TARGET_PLACEHOLDERS:
+            present = ph in remaining
+            print(ph, "present_in_remaining_list =", present)
+    except Exception:
+        print("TRACE VALIDATE_RENDERED_FILE: failed to print diagnostics")
 
     must_review: list[str] = []
 
