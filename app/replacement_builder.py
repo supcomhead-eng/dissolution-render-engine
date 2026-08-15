@@ -15,6 +15,10 @@ from app.derived_field_resolver import (
     resolve_derived_value,
 )
 
+TARGET_PLACEHOLDERS = [
+    "[NGÀY CẤP CCCD NGƯỜI UQ]",
+    "[NƠI CẤP CCCD NGƯỜI UQ]",
+]
 
 SKIP_SOURCE_TYPES = {
     "CONSTANT",
@@ -149,6 +153,16 @@ def build_replacements(
 ]:
     data_pool = build_data_pool(packet)
 
+    # --- TRACE DATA_POOL (exact reprs) ---
+    try:
+        print("\nTRACE DATA_POOL")
+        print("authorized_person_id_issue_date =", repr(data_pool.get("authorized_person_id_issue_date")))
+        print("authorized_person_id_issue_place =", repr(data_pool.get("authorized_person_id_issue_place")))
+        print("_authorized_profile_lookup_error =", repr(data_pool.get("_authorized_profile_lookup_error")))
+    except Exception:
+        # never crash diagnostic printing
+        print("TRACE DATA_POOL: failed to print data_pool fields")
+
     # determine master context (conservative: use first selected master name if any)
     selected_masters = packet.get("selected_masters", []) or []
     master_name = None
@@ -278,6 +292,28 @@ def build_replacements(
             continue
 
         replacements[placeholder] = value
+
+    # --- TRACE MAPPING for target placeholders ---
+    try:
+        print("\nTRACE MAPPING")
+        for ph in TARGET_PLACEHOLDERS:
+            item = mapping.get(ph)
+            if item is None:
+                print(ph, "=> NOT IN MAPPING")
+            else:
+                print(ph, "canonical_field =", repr(item.get("canonical_field")), "source_type =", repr(item.get("source_type")))
+    except Exception:
+        print("TRACE MAPPING: failed to print mapping entries")
+
+    # --- TRACE BUILD_REPLACEMENTS (exact reprs) ---
+    try:
+        print("\nTRACE BUILD_REPLACEMENTS")
+        for ph in TARGET_PLACEHOLDERS:
+            print(ph, "->", repr(replacements.get(ph)))
+        print("TOTAL_REPLACEMENTS =", len(replacements))
+        print("UNRESOLVED_COUNT =", len(unresolved))
+    except Exception:
+        print("TRACE BUILD_REPLACEMENTS: failed to print replacements")
 
     return replacements, unresolved
 
