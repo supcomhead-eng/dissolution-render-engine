@@ -12,6 +12,10 @@ from app.word_renderer import (
     render_document,
 )
 
+TARGET_PLACEHOLDERS = [
+    "[NGÀY CẤP CCCD NGƯỜI UQ]",
+    "[NƠI CẤP CCCD NGƯỜI UQ]",
+]
 
 OUTPUT_FOLDER = Path("output")
 
@@ -103,6 +107,18 @@ def render(
                 OUTPUT_FOLDER
                 / f"RENDERED_{master_file.name}"
             )
+
+            # --- TRACE PASSED TO RENDERER ---
+            try:
+                print("\nTRACE PASSED TO RENDERER")
+                print("master_name =", master_name)
+                for ph in TARGET_PLACEHOLDERS:
+                    try:
+                        print(ph, "->", repr(replacements.get(ph)))
+                    except Exception:
+                        print(ph, "-> (error printing)")
+            except Exception:
+                print("TRACE PASSED TO RENDERER: failed to print")
 
             render_document(
                 master_file,
