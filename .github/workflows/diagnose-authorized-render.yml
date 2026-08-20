@@ -75,7 +75,7 @@ jobs:
 
       - name: Run production CLI main (will print TRACE logs)
         run: |
-          python -u app/main.py
+          python -u -m app.main
 
       - name: Post-check rendered outputs for placeholders (fail if any found)
         run: |
