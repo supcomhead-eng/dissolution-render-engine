@@ -20,7 +20,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24
+Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.x[...]
 
 ***
 # Placeholder: [02]
@@ -42,7 +42,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p25
+Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 2; vị trí đầu: word/document.x[...]
 
 ***
 # Placeholder: [03]
@@ -64,7 +64,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p40
+Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.x[...]
 
 ***
 # Placeholder: [04]
@@ -86,7 +86,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p41
+Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.x[...]
 
 ***
 # Placeholder: [05]
@@ -108,7 +108,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p56
+Alias group: tax_form_labels. Rule override: Không replace. Có thể là nhãn biểu mẫu, không phải placeholder dữ liệu. Số lần xuất hiện: 1; vị trí đầu: word/document.[...]
 
 ***
 # Placeholder: [BEGIN_CO_DONG]
@@ -257,6 +257,50 @@ HIGH
 Alias group: authorized_person_id. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
 
 ***
+# Placeholder: [NGÀY CẤP CCCD NGƯỜI UQ]
+
+## Canonical Field
+authorized_person_id_issue_date
+
+## Description
+Ngày cấp CCCD người được ủy quyền/giới thiệu
+
+## Used In Masters
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+
+## Source Type
+DOCUMENT
+
+## Confidence
+HIGH
+
+## Notes
+Alias group: authorized_person_id. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
+
+***
+# Placeholder: [NƠI CẤP CCCD NGƯỜI UQ]
+
+## Canonical Field
+authorized_person_id_issue_place
+
+## Description
+Nơi cấp CCCD người được ủy quyền/giới thiệu
+
+## Used In Masters
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+
+## Source Type
+DOCUMENT
+
+## Confidence
+HIGH
+
+## Notes
+Alias group: authorized_person_id. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
+
+***
 # Placeholder: [CCCD]
 
 ## Canonical Field
@@ -276,7 +320,7 @@ DOCUMENT
 HIGH
 
 ## Notes
-Alias group: authorized_person_id. Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p13
+Alias group: authorized_person_id. Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11
 
 ***
 # Placeholder: [CHỨC VỤ NGƯỜI ĐẠI DIỆN]
@@ -305,7 +349,7 @@ DOCUMENT
 HIGH
 
 ## Notes
-Alias group: legal_representative_title. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p281 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p40 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p52 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p82
+Alias group: legal_representative_title. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24
 
 ***
 # Placeholder: [CHỨC VỤ]
@@ -372,7 +416,7 @@ SEARCH
 HIGH
 
 ## Notes
-Alias group: authority_tax. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p6 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p19
+Alias group: authority_tax. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
 
 ***
 # Placeholder: [CƠ QUAN ĐKKD]
@@ -416,7 +460,7 @@ SEARCH
 HIGH
 
 ## Notes
-Alias group: authority_business_registration. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p22 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p47 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p53 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p65 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p96 Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p9 Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p9
+Alias group: authority_business_registration. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21
 
 ***
 # Placeholder: [EMAIL GĐ]
@@ -493,7 +537,7 @@ MEDIUM
 Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
 
 ## Notes
-Alias group: generic_contact. Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17 Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21
+Alias group: generic_contact. Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17 Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17
 
 ***
 # Placeholder: [END_CO_DONG]
@@ -751,7 +795,7 @@ CONSTANT
 HIGH
 
 ## Notes
-Alias group: shareholder. Rule override: Mặc định Phổ thông. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p42
+Alias group: shareholder. Rule override: Mặc định Phổ thông. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15
 
 ***
 # Placeholder: [MST]
@@ -800,7 +844,7 @@ DOCUMENT
 HIGH
 
 ## Notes
-Alias group: enterprise_tax_code. Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p13 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p14 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p18 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p89 Alias với mã số doanh nghiệp. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p11 Alias với mã số doanh nghiệp. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p13
+Alias group: enterprise_tax_code. Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Alias với mã số doanh nghiệp. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11
 
 ***
 # Placeholder: [MST_10]
@@ -1023,345 +1067,44 @@ HIGH
 Alias group: tax_code_digits. Rule override: Ký tự thứ 9. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p34
 
 ***
-# Placeholder: [NGÀY CẤP CCCD]
-
-## Canonical Field
-authorized_person_id_issue_date
-
-## Description
-Ngày cấp CCCD người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: authorized_person_id_issue. Trong master hiện tại chủ yếu là CCCD người được ủy quyền/giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p13 Trong master hiện tại chủ yếu là CCCD người được ủy quyền/giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
-
-***
-# Placeholder: [NGÀY DKDN]
-
-## Canonical Field
-enterprise_registration_date
-
-## Description
-Ngày đăng ký doanh nghiệp/ngày cấp GPKD
-
-## Used In Masters
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: enterprise_registration_date. Ngày cấp/đăng ký trên GPKD. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [NGÀY HẾT HẠN CCCD]
-
-## Canonical Field
-authorized_person_id_expiry_date
-
-## Description
-Ngày hết hạn CCCD người được ủy quyền
-
-## Used In Masters
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_id_expiry. Alias của [NGÀY HẾT HẠN]. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15
-
-***
-# Placeholder: [NGÀY HẾT HẠN]
-
-## Canonical Field
-authorized_person_id_expiry_date
-
-## Description
-Ngày hết hạn CCCD người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_id_expiry. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15
-
-***
-# Placeholder: [NGÀY SINH]
-
-## Canonical Field
-authorized_person_date_of_birth
-
-## Description
-Ngày sinh người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_dob. Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p12 Alias theo profile/giấy giới thiệu. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p9
-
-***
-# Placeholder: [NGƯỜI ĐƯỢC GIỚI THIỆU]
-
-## Canonical Field
-authorized_person_name
-
-## Description
-Họ tên người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_name. Alias theo giấy giới thiệu. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p11
-
-***
-# Placeholder: [NGƯỜI ĐẠI DIỆN PHÁP LUẬT]
-
-## Canonical Field
-legal_representative_name
-
-## Description
-Họ tên người đại diện theo pháp luật
-
-## Used In Masters
-- HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
-- MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
-- MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(1).docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-- MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: legal_representative_name. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p26 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p27 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p288 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p30 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p31 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p38 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p42 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p94 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p99
-
-***
-# Placeholder: [NS GĐ]
-
-## Canonical Field
-legal_representative_date_of_birth
-
-## Description
-Ngày sinh người đại diện
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: legal_representative_dob. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8
-
-***
-# Placeholder: [NS NGƯỜI UQ]
-
-## Canonical Field
-authorized_person_date_of_birth
-
-## Description
-Ngày sinh người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_dob. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15
-
-***
 # Placeholder: [NĂM]
 
 ## Canonical Field
-document_year
+signing_year
 
 ## Description
-Năm của hồ sơ/văn bản
+Năm ký kết
 
 ## Used In Masters
-- HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
-- MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(1).docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
 - MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
 - MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
 - MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-SYSTEM
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: document_year. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p37 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p38 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p5 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p84 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p9 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p90 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p7 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p8 Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p5 Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p5 Số lần xuất hiện: 5; vị trí đầu: word/document.xml#p5
-
-***
-# Placeholder: [NƠI CẤP CCCD]
-
-## Canonical Field
-authorized_person_id_issue_place
-
-## Description
-Nơi cấp CCCD người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
 
 ## Source Type
 DOCUMENT
 
 ## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+HIGH
 
 ## Notes
-Alias group: authorized_person_id_issue. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17
+Alias group: temporal. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p3
 
 ***
-# Placeholder: [NƠI KÝ]
+# Placeholder: [NGÀN_SỐ]
 
 ## Canonical Field
-signing_place
+text_thousand_digit
 
 ## Description
-Địa danh ghi tại phần ngày ký
+Chữ số hàng ngàn
 
 ## Used In Masters
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
 - MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
 - MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
 - MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
-- MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(1).docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
 
 ## Source Type
 RULE
@@ -1370,141 +1113,16 @@ RULE
 HIGH
 
 ## Notes
-Alias group: signing_place. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p278 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p37 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p38 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p5 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p7 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p84 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p9 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p90
+Alias group: text_numbers. Rule override: Từ regex match trích từ shareholder_share_value. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15
 
 ***
-# Placeholder: [STT]
+# Placeholder: [SỐ_NGÀN]
 
 ## Canonical Field
-UNKNOWN
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Confidence
-LOW
-
-## Reason
-Placeholder có nhiều canonical field khả dĩ trong FIELD_DICTIONARY: member_sequence_number, shareholder_sequence_number
-
-## Notes
-Alias group: sequence_number. Rule override: Đánh số thứ tự cổ đông từ 1. | Đánh số thứ tự thành viên từ 1. Trong block thành viên phải map member_sequence_number; cần override theo master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Trong block thành viên phải map member_sequence_number; cần override theo master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p39 Trong block thành viên phải map member_sequence_number; cần override theo master. Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [SĐT GĐ]
-
-## Canonical Field
-legal_representative_phone
+share_count_thousand
 
 ## Description
-Số điện thoại người đại diện
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-USER_INPUT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: legal_representative_phone. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p10
-
-***
-# Placeholder: [SĐT NGƯỜI UQ]
-
-## Canonical Field
-authorized_person_phone
-
-## Description
-Số điện thoại người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_phone. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p18 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19
-
-***
-# Placeholder: [SỐ CỔ PHẦN]
-
-## Canonical Field
-shareholder_share_count
-
-## Description
-Số cổ phần sở hữu
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p41
-
-***
-# Placeholder: [SỐ LƯỢNG LAO ĐỘNG]
-
-## Canonical Field
-employee_count
-
-## Description
-Số lượng người lao động tại thời điểm giải thể
-
-## Used In Masters
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-
-## Source Type
-CONSTANT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: employee_count. Rule override: Mặc định 0 theo workflow. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p35
-
-***
-# Placeholder: [SỐ PHIẾU BIỂU QUYẾT]
-
-## Canonical Field
-shareholder_vote_count
-
-## Description
-Số phiếu biểu quyết của cổ đông
+Số cổ phần hàng ngàn
 
 ## Used In Masters
 - MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
@@ -1518,285 +1136,49 @@ RULE
 HIGH
 
 ## Notes
-Alias group: shareholder_votes. Rule override: Bằng số cổ phần phổ thông. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p46
+Alias group: share_counts. Rule override: Từ shareholder_share_count, chia 1000. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p43
 
 ***
-# Placeholder: [SỐ ĐIỆN THOẠI]
+# Placeholder: [SỐ_NHÀ]
 
 ## Canonical Field
-generic_phone_number
+head_office_house_number
 
 ## Description
-Số điện thoại dùng theo ngữ cảnh
-
-## Used In Masters
-- HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-COMPOSITE
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: generic_contact. Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17 Nguồn phụ thuộc master. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19
-
-***
-# Placeholder: [TÊN CHỦ SỞ HỮU]
-
-## Canonical Field
-owner_name
-
-## Description
-Tên chủ sở hữu công ty TNHH một thành viên
-
-## Used In Masters
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: owner_name. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p24 Số lần xuất hiện: 5; vị trí đầu: word/document.xml#p37
-
-***
-# Placeholder: [TÊN CHỦ TỊCH HĐQT]
-
-## Canonical Field
-board_chairperson_name
-
-## Description
-Tên Chủ tịch Hội đồng quản trị
+Số nhà trong địa chỉ
 
 ## Used In Masters
 - MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
 - MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: governance_chairperson. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p45 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p56 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p20
-
-***
-# Placeholder: [TÊN CHỦ TỊCH HĐTV]
-
-## Canonical Field
-member_council_chairperson_name
-
-## Description
-Tên Chủ tịch Hội đồng thành viên
-
-## Used In Masters
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: governance_chairperson. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p58
-
-***
-# Placeholder: [TÊN CÔNG TY]
-
-## Canonical Field
-company_name
-
-## Description
-Tên đầy đủ của doanh nghiệp
-
-## Used In Masters
-- HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3(1).docx
-- MASTER_03_XAC_NHAN_KHONG_NO_THUE_LOCK_V3.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_05_DANH_SACH_CHU_NO_CLEAN_LANDSCAPE.docx
-- MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(1).docx
-- MASTER_06_DANH_SACH_CHU_NO_CTCP_CLEAN(2).docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_GIOI_THIEU_HAI_QUAN_CLEAN.docx
-- MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: company_name. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p1 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p2 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p1 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p2 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p24 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p3 Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p7 Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p2 Số lần xuất hiện: 5; vị trí đầu: word/document.xml#p1 Số lần xuất hiện: 6; vị trí đầu: word/document.xml#p1
-
-***
-# Placeholder: [TÊN CỔ ĐÔNG]
-
-## Canonical Field
-shareholder_name
-
-## Description
-Họ tên cổ đông
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p40 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15
-
-***
-# Placeholder: [TÊN GIÁM ĐỐC]
-
-## Canonical Field
-director_name
-
-## Description
-Tên Giám đốc dùng tại khối ký/ủy quyền
-
-## Used In Masters
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-
-## Source Type
-COMPOSITE
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: legal_representative_alias. Thường alias có điều kiện với NĐDPL. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p45 Thường alias có điều kiện với NĐDPL. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p73 Thường alias có điều kiện với NĐDPL. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p8
-
-***
-# Placeholder: [TÊN NGƯỜI UQ]
-
-## Canonical Field
-authorized_person_name
-
-## Description
-Họ tên người được ủy quyền
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
-- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_name. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p5 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p14 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p21
-
-***
-# Placeholder: [TÊN THÀNH VIÊN 1]
-
-## Canonical Field
-first_member_name
-
-## Description
-Tên thành viên thứ nhất/chủ tọa theo master
-
-## Used In Masters
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
 
 ## Source Type
 RULE
 
 ## Confidence
-HIGH
+MEDIUM
+
+## Reason
+Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
 
 ## Notes
-Alias group: member. Phụ thuộc thứ tự danh sách. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p11
+Alias group: address_parts. Rule override: Regex trích từ head_office_address. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p10
 
 ***
-# Placeholder: [TÊN THÀNH VIÊN]
+# Placeholder: [THÁNG]
 
 ## Canonical Field
-member_name
+signing_month
 
 ## Description
-Họ tên thành viên góp vốn
+Tháng ký kết
 
 ## Used In Masters
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
+- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
+- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
 
 ## Source Type
 DOCUMENT
@@ -1805,558 +1187,23 @@ DOCUMENT
 HIGH
 
 ## Notes
-Alias group: member. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p17
+Alias group: temporal. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p2
 
 ***
 # Placeholder: [TÊN]
 
 ## Canonical Field
-generic_person_name
+authorized_person_name
 
 ## Description
-Tên người dùng theo ngữ cảnh/meta profile
+Tên người được ủy quyền
 
 ## Used In Masters
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-COMPOSITE
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: generic_person_meta. CẦN XÁC NHẬN: placeholder meta trong profile. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p26
-
-***
-# Placeholder: [TỔNG GIÁ TRỊ HOÀN TRẢ BẰNG CHỮ]
-
-## Canonical Field
-total_refund_value_words
-
-## Description
-Tổng hoàn trả bằng chữ
-
-## Used In Masters
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: liquidation_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p30
-
-***
-# Placeholder: [TỔNG GIÁ TRỊ HOÀN TRẢ]
-
-## Canonical Field
-total_refund_value
-
-## Description
-Tổng giá trị hoàn trả cho cổ đông
-
-## Used In Masters
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: liquidation_total. Rule override: Mặc định bằng tổng tài sản còn lại. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p30
-
-***
-# Placeholder: [TỔNG GIÁ TRỊ TÀI SẢN CÒN LẠI BẰNG CHỮ]
-
-## Canonical Field
-total_remaining_asset_value_words
-
-## Description
-Tổng tài sản còn lại bằng chữ
-
-## Used In Masters
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: liquidation_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p28
-
-***
-# Placeholder: [TỔNG GIÁ TRỊ TÀI SẢN CÒN LẠI]
-
-## Canonical Field
-total_remaining_asset_value
-
-## Description
-Tổng giá trị tài sản còn lại
-
-## Used In Masters
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-USER_INPUT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: liquidation_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p28
-
-***
-# Placeholder: [TỔNG SỐ CỔ PHẦN]
-
-## Canonical Field
-total_share_count
-
-## Description
-Tổng số cổ phần
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỔNG SỐ CỔ ĐÔNG]
-
-## Canonical Field
-total_shareholder_count
-
-## Description
-Tổng số cổ đông tham gia/danh sách
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỔNG SỐ PHIẾU BIỂU QUYẾT]
-
-## Canonical Field
-total_voting_rights_count
-
-## Description
-Tổng số phiếu biểu quyết (placeholder cũ/dùng chung)
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: total_votes_alias. Rule override: Theo loại hình/master. Có rule khác nhau TNHH và CTCP. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p57 Có rule khác nhau TNHH và CTCP. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p56 Có rule khác nhau TNHH và CTCP. Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỔNG SỐ PHIẾU]
-
-## Canonical Field
-total_votes_present
-
-## Description
-Tổng số phiếu của cổ đông dự họp
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder_total_votes. Rule override: Mặc định 100% tổng phiếu của cổ đông dự họp. Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p85 Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỔNG SỐ THÀNH VIÊN]
-
-## Canonical Field
-total_member_count
-
-## Description
-Tổng số thành viên
-
-## Used In Masters
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: member_total. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p27
-
-***
-# Placeholder: [TỔNG VỐN ĐIỀU LỆ BẰNG CHỮ]
-
-## Canonical Field
-charter_capital_amount_words
-
-## Description
-Tổng vốn điều lệ bằng chữ
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: charter_capital. Alias tổng vốn bằng chữ. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p27 Alias tổng vốn bằng chữ. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỔNG VỐN ĐIỀU LỆ]
-
-## Canonical Field
-charter_capital_amount
-
-## Description
-Tổng vốn điều lệ bằng số
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: charter_capital. Alias tổng vốn điều lệ. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p27 Alias tổng vốn điều lệ. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p57
-
-***
-# Placeholder: [TỶ LỆ GÓP]
-
-## Canonical Field
-member_capital_ratio
-
-## Description
-Tỷ lệ vốn góp của thành viên
-
-## Used In Masters
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: member_capital. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [TỶ LỆ SỞ HỮU]
-
-## Canonical Field
-shareholder_ownership_percentage
-
-## Description
-Tỷ lệ sở hữu cổ phần
-
-## Used In Masters
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: shareholder. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p45
-
-***
-# Placeholder: [VIẾT TẮT CÔNG TY]
-
-## Canonical Field
-company_abbreviation
-
-## Description
-Tên viết tắt của doanh nghiệp
-
-## Used In Masters
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1)(1).docx
-- MASTER_04_THONG_BAO_GIAI_THE_LAN_02_CTCP_CLEAN (1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_05_THONG_BAO_GIAI_THE_SKHDT_CLEAN_V2.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-- MASTER_GIAY_GIOI_THIEU_THUE_CLEAN (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: company_abbreviation. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p2 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p3 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p4 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p7 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p9 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p3 Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p3
-
-***
-# Placeholder: [VỐN GÓP BẰNG CHỮ]
-
-## Canonical Field
-member_capital_amount_words
-
-## Description
-Vốn góp bằng chữ
-
-## Used In Masters
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: member_capital. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [VỐN GÓP]
-
-## Canonical Field
-member_capital_amount
-
-## Description
-Giá trị vốn góp của thành viên
-
-## Used In Masters
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: member_capital. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [VỐN ĐIỀU LỆ BẰNG CHỮ]
-
-## Canonical Field
-charter_capital_amount_words
-
-## Description
-Tổng vốn điều lệ bằng chữ
-
-## Used In Masters
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-
-## Source Type
-RULE
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: charter_capital. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p23
-
-***
-# Placeholder: [VỐN ĐIỀU LỆ]
-
-## Canonical Field
-charter_capital_amount
-
-## Description
-Tổng vốn điều lệ bằng số
-
-## Used In Masters
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: charter_capital. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p23
-
-***
-# Placeholder: [ÔNG/BÀ]
-
-## Canonical Field
-person_honorific
-
-## Description
-Danh xưng Ông/Bà
-
-## Used In Masters
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
-
-## Source Type
-RULE
-
-## Confidence
-MEDIUM
-
-## Reason
-Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
-
-## Notes
-Alias group: person_honorific. Rule override: Xác định người theo vị trí trong master. Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p24 Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p42 Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p15 Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p20 Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p11 Dùng cho chủ sở hữu, thành viên hoặc NĐDPL tùy ngữ cảnh. Số lần xuất hiện: 4; vị trí đầu: word/document.xml#p37
-
-***
-# Placeholder: [ĐỊA CHỈ NGƯỜI UQ]
-
-## Canonical Field
-authorized_person_contact_address
-
-## Description
-Địa chỉ liên lạc người được ủy quyền
-
-## Used In Masters
-- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
-- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
-
-## Source Type
-DOCUMENT
-
-## Confidence
-HIGH
-
-## Notes
-Alias group: authorized_person_address. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p17
-
-***
-# Placeholder: [ĐỊA CHỈ TRỤ SỞ]
-
-## Canonical Field
-registered_office_address
-
-## Description
-Địa chỉ trụ sở chính
-
-## Used In Masters
-- HC_02_XAC_NHAN_NGHIA_VU_HAI_QUAN_MASTER_FINAL.docx
-- MASTER_01_DE_NGHI_DONG_MA_SO_THUE_CLEAN (2).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1(1).docx
-- MASTER_01_QUYET_DINH_DHDCD_GIAI_THE_CTCP_V1.docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(1).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(2).docx
-- MASTER_02_BIEN_BAN_HOP_DHDCD_GIAI_THE_CTCP_BLOCK_CO_DONG(3).docx
-- MASTER_02_CONG_VAN_KHONG_HOAN_THUE_CLEAN (3).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN (1).docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_1TV_CLEAN.docx
-- MASTER_04_QUYET_DINH_GIAI_THE_TNHH_2TV_FINAL_v2.docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(1).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(2).docx
-- MASTER_05_BAO_CAO_THANH_LY_TAI_SAN_CTCP_FINAL(3).docx
-- MASTER_06_BAO_CAO_THANH_LY_TAI_SAN_SKHDT_CLEAN.docx
-- MASTER_BAO_CAO_THANH_LY_TAI_SAN_TNHH_2TV_FINAL_LOCK.docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4(1).docx
-- MASTER_BIEN_BAN_HOP_HDTV_GIAI_THE_TNHH_2TV_v3_BLOCK_LAP_THANH_VIEN V4.docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
 - MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
 - MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
 - MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
 
 ## Source Type
@@ -2366,71 +1213,51 @@ DOCUMENT
 HIGH
 
 ## Notes
-Alias group: registered_office_address. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p12 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p15 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p19 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p20 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p22 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p9 Số lần xuất hiện: 2; vị trí đầu: word/document.xml#p11 Số lần xuất hiện: 3; vị trí đầu: word/document.xml#p14
+Alias group: authorized_person_full_name. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p12 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p21
 
-# NEEDS_CONFIRMATION
+***
+# Placeholder: [TÊN GĐ]
 
-## [BEGIN_CO_DONG_CO_MAT]
-- **Canonical Field hiện tại**: present_shareholder_block_begin_marker
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Canonical Field
+legal_representative_name
 
-## [EMAIL]
-- **Canonical Field hiện tại**: generic_email
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Description
+Tên người đại diện
 
-## [END_CO_DONG_CO_MAT]
-- **Canonical Field hiện tại**: present_shareholder_block_end_marker
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Used In Masters
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN(1).docx
+- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT.docx
+- MASTER_GIAY_UY_QUYEN_LAN_01_SKHDT_FINAL_LOCK v2.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN(1).docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_SKHDT_FINAL_LOCK.docx
 
-## [NGÀY CẤP CCCD]
-- **Canonical Field hiện tại**: authorized_person_id_issue_date
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Source Type
+DOCUMENT
 
-## [NƠI CẤP CCCD]
-- **Canonical Field hiện tại**: authorized_person_id_issue_place
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Confidence
+HIGH
 
-## [STT]
-- **Canonical Field hiện tại**: UNKNOWN
-- **Confidence**: LOW
-- **Reason**: Placeholder có nhiều canonical field khả dĩ trong FIELD_DICTIONARY: member_sequence_number, shareholder_sequence_number
+## Notes
+Alias group: legal_representative_full_name. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p7 Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p20
 
-## [SỐ ĐIỆN THOẠI]
-- **Canonical Field hiện tại**: generic_phone_number
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+***
+# Placeholder: [TUỔI]
 
-## [TÊN GIÁM ĐỐC]
-- **Canonical Field hiện tại**: director_name
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Canonical Field
+authorized_person_age
 
-## [TÊN]
-- **Canonical Field hiện tại**: generic_person_name
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Description
+Tuổi người được ủy quyền
 
-## [TỔNG SỐ PHIẾU BIỂU QUYẾT]
-- **Canonical Field hiện tại**: total_voting_rights_count
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Used In Masters
+- MASTER_PROFILE_UY_QUYEN_ALIAS (1).docx
 
-## [ÔNG/BÀ]
-- **Canonical Field hiện tại**: person_honorific
-- **Confidence**: MEDIUM
-- **Reason**: Mapping đã có nhưng phụ thuộc ngữ cảnh, alias hoặc rule theo master.
+## Source Type
+DOCUMENT
 
-# SUMMARY
+## Confidence
+HIGH
 
-- **Tổng số file master đã quét**: 35
-- **Tổng số placeholder**: 729
-- **Tổng số placeholder duy nhất**: 92
-- **Số mapping HIGH**: 81
-- **Số mapping MEDIUM**: 10
-- **Số mapping LOW**: 1
-- **Số UNKNOWN**: 1
+## Notes
+Alias group: authorized_person_demographics. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p8
