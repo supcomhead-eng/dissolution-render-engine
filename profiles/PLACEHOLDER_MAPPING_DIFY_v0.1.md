@@ -276,6 +276,50 @@ DOCUMENT
 HIGH
 
 ## Notes
+Alias group: authorized_person_id.
+
+***
+# Placeholder: [NƠI CẤP CCCD NGƯỜI UQ]
+
+## Canonical Field
+authorized_person_id_issue_place
+
+## Description
+Nơi cấp CCCD người được ủy quyền/giới thiệu
+
+## Used In Masters
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+
+## Source Type
+DOCUMENT
+
+## Confidence
+HIGH
+
+## Notes
+Alias group: authorized_person_id.
+
+***
+# Placeholder: [NGÀY CẤP CCCD NGƯỜI UQ]
+
+## Canonical Field
+authorized_person_id_issue_date
+
+## Description
+Ngày cấp CCCD người được ủy quyền/giới thiệu
+
+## Used In Masters
+- MASTER_GIAY_UY_QUYEN_LAN_01_CTCP_CLEAN.docx
+- MASTER_GIAY_UY_QUYEN_LAN_02_CTCP_CLEAN.docx
+
+## Source Type
+DOCUMENT
+
+## Confidence
+HIGH
+
+## Notes
 Alias group: authorized_person_id. Số lần xuất hiện: 1; vị trí đầu: word/document.xml#p16
 
 ***
